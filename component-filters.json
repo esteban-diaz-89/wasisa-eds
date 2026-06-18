@@ -1,0 +1,50 @@
+[
+  {
+    "id": "main",
+    "components": [
+      "section"
+    ]
+  },
+  {
+    "id": "section",
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title",
+      "hero",
+      "cards",
+      "columns",
+      "fragment",
+      "cuadro-medico",
+      "cuadro-medico-provincias",
+      "cuadro-medico-top-especialidades",
+      "cuadro-medico-otras-especialidades",
+      "cuadro-medico-otras-provincias",
+      "cuadro-medico-ficha-doctor",
+      "cuadro-medico-otros-medicos",
+      "cuadro-medico-ficha-centro"
+    ]
+  },
+  {
+    "id": "cards",
+    "components": [
+      "card"
+    ]
+  },
+  {
+    "id": "columns",
+    "components": [
+      "column"
+    ]
+  },
+  {
+    "id": "column",
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title"
+    ]
+  }
+]

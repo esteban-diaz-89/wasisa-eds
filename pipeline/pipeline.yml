@@ -1,0 +1,168 @@
+# ============================================================
+# Archivo: azure-pipelines.yml
+# Descripcion: Sincroniza el contenido de ramas de Azure DevOps
+# hacia GitHub excluyendo la carpeta pipeline.
+# Ramas incluidas: main, develop, staging
+# Nota: Este script ha sido generado con GitHub Copilot y 
+# revisado por el equipo de Arquitectura de Asisa.
+# Fecha: 2026-05-07
+# ============================================================
+
+# Ejecuta la pipeline solo cuando hay cambios en las ramas permitidas.
+trigger:
+  branches:
+    include:
+      - main
+      - develop
+      - staging
+
+variables:
+  # Grupo de variables de Azure DevOps que contiene la configuración de GitHub.
+  - group: Asisa-GitHub
+
+  # Carpeta raíz que se excluirá antes de publicar el contenido en GitHub.
+  - name: EXCLUDED_ROOT_DIR
+    value: pipeline
+
+# Agente hospedado sobre Ubuntu para ejecutar la sincronización.
+pool:
+  vmImage: ubuntu-latest
+
+# Limpia el workspace del agente antes de empezar.
+workspace:
+  clean: all
+
+steps:
+  # Descarga el repositorio completo para trabajar con el contenido actual de la rama.
+  - checkout: self
+    clean: true
+    fetchDepth: 0
+    persistCredentials: true
+
+  # Prepara una copia temporal del repositorio, elimina la carpeta excluida
+  # y publica el resultado en la rama equivalente de GitHub.
+  # El repositorio de Azure DevOps actua como origen de verdad: si se modifica
+  # manualmente la rama de GitHub, la siguiente ejecucion valida volvera a dejar
+  # el destino alineado con el contenido del origen filtrado.
+  - script: |
+      # Falla ante errores, variables no definidas o errores en pipelines.
+      set -euo pipefail
+
+      # Rama origen en Azure DevOps y directorio temporal de trabajo.
+      # BUILD_SOURCEVERSION y BUILD_SOURCEVERSIONMESSAGE los expone la propia ejecución.
+      # Se usan para trasladar al commit de GitHub el SHA y el mensaje del commit origen.
+      BRANCH="${BUILD_SOURCEBRANCHNAME}"
+      SOURCE_COMMIT_SHA="${BUILD_SOURCEVERSION:-}"
+      SOURCE_COMMIT_MESSAGE="${BUILD_SOURCEVERSIONMESSAGE:-}"
+      FILTERED_DIR="${AGENT_TEMPDIRECTORY}/github-sync-filtered"
+      COMMIT_MESSAGE_FILE="${AGENT_TEMPDIRECTORY}/git-sync-commit-message.txt"
+
+      # Solo sincroniza las ramas expresamente permitidas.
+      if [[ ! "$BRANCH" =~ ^(main|develop|staging)$ ]]; then
+        echo "Rama no permitida para sincronizacion: $BRANCH"
+        exit 0
+      fi
+
+      # Limpia posibles restos de ejecuciones previas en el agente.
+      echo "Limpiando temporales previos del agente usados por esta pipeline"
+      rm -rf "${FILTERED_DIR}"
+      mkdir -p "${FILTERED_DIR}"
+
+
+      # Identidad usada para crear el commit en el repositorio destino.
+      git config --global user.email "nuevaarquitectura@asisa.es"
+      git config --global user.name "miguelangelfernandezprisuelos"
+      
+      # Copia el contenido actual a un directorio temporal para filtrarlo sin tocar el checkout original.
+      cp -a . "${FILTERED_DIR}/"
+
+      cd "${FILTERED_DIR}"
+
+      # Elimina el repositorio Git original para reconstruir uno nuevo solo con el contenido filtrado.
+      rm -rf .git
+
+      # Excluye la carpeta raíz configurada antes de publicar en GitHub.
+      if [ -d "${EXCLUDED_ROOT_DIR}" ]; then
+        echo "Eliminando carpeta raiz excluida: ${EXCLUDED_ROOT_DIR}"
+        rm -rf "${EXCLUDED_ROOT_DIR}"
+      else
+        echo "La carpeta raiz ${EXCLUDED_ROOT_DIR} no existe en esta rama"
+      fi
+
+      # Construye un archivo de mensaje para git commit fuera del arbol sincronizado.
+      # Asi puede usarse con git commit -F sin que termine incluido en el repositorio destino.
+      # El asunto se genera como "[sync] <titulo original>" y el cuerpo conserva
+      # el texto adicional del commit origen cuando existe.
+      if [ -n "${SOURCE_COMMIT_MESSAGE}" ]; then
+        # La primera línea del mensaje original se usa como título del commit sincronizado.
+        SOURCE_COMMIT_TITLE="${SOURCE_COMMIT_MESSAGE%%$'\n'*}"
+        if [ "${SOURCE_COMMIT_TITLE}" = "${SOURCE_COMMIT_MESSAGE}" ]; then
+          SOURCE_COMMIT_BODY=""
+        else
+          # Si hay más líneas, se conservan como cuerpo del commit.
+          SOURCE_COMMIT_BODY="${SOURCE_COMMIT_MESSAGE#*$'\n'}"
+        fi
+
+        printf '[sync] %s\n' "${SOURCE_COMMIT_TITLE}" > "${COMMIT_MESSAGE_FILE}"
+        if [ -n "${SOURCE_COMMIT_BODY}" ]; then
+          printf '\n%s\n' "${SOURCE_COMMIT_BODY}" >> "${COMMIT_MESSAGE_FILE}"
+        fi
+      else
+        # Fallback para ejecuciones donde Azure DevOps no publica el mensaje origen.
+        printf '[sync] Sync desde Azure DevOps\n' > "${COMMIT_MESSAGE_FILE}"
+      fi
+
+      # Añade trazabilidad mínima para saber qué commit de Azure DevOps generó el snapshot.
+      printf '\n[sync] Commit origen Azure DevOps: %s\n[sync] Carpeta excluida: %s\n' \
+        "${SOURCE_COMMIT_SHA:-desconocido}" \
+        "${EXCLUDED_ROOT_DIR}" >> "${COMMIT_MESSAGE_FILE}"
+
+      # Inicializa un repositorio limpio y configura el remoto de GitHub autenticado por token.
+      git init
+      git checkout -b "${BRANCH}"
+      git remote add github "https://x-access-token:${GH_TOKEN}@github.com/${GH_OWNER}/${GH_REPO}.git"
+
+      # Si la rama ya existe en GitHub, consulta primero su SHA actual y usa
+      # force-with-lease contra ese valor exacto. Asi se evita un --force ciego
+      # y tambien el error "stale info" de un repositorio temporal sin fetch previo.
+      if git ls-remote --exit-code --heads github "${BRANCH}" >/dev/null 2>&1; then
+        echo "Recuperando referencia actual de GitHub para la rama ${BRANCH}"
+        git fetch --depth=1 github "refs/heads/${BRANCH}:refs/remotes/github/${BRANCH}"
+        REMOTE_SHA="$(git rev-parse "refs/remotes/github/${BRANCH}")"
+        PUSH_ARGS=(github "HEAD:refs/heads/${BRANCH}" "--force-with-lease=refs/heads/${BRANCH}:${REMOTE_SHA}")
+      else
+        # Si no existe, no hay referencia remota que proteger y el primer push crea la rama.
+        echo "La rama ${BRANCH} no existe en GitHub; se creara en el primer push"
+        PUSH_ARGS=(github "HEAD:refs/heads/${BRANCH}")
+      fi
+
+      # Añade todos los archivos ya filtrados al nuevo repositorio.
+      git add -A
+
+      # Evita generar commits vacíos cuando no hay diferencias que publicar.
+      if git diff --cached --quiet; then
+        echo "No hay cambios para publicar"
+        exit 0
+      fi
+
+      # Publica el snapshot filtrado en la rama correspondiente de GitHub.
+      git commit -F "${COMMIT_MESSAGE_FILE}"
+      git push "${PUSH_ARGS[@]}"
+    displayName: Limpiar temporales y sincronizar a GitHub
+    env:
+      # Variables necesarias para autenticar y ubicar el repositorio de destino.
+      GH_TOKEN: $(GH_TOKEN)
+      GH_OWNER: $(GH_OWNER)
+      GH_REPO: $(GH_REPO)
+      EXCLUDED_ROOT_DIR: $(EXCLUDED_ROOT_DIR)
+
+  # Borra la carpeta temporal incluso si el paso anterior falla.
+  - script: |
+      set -euo pipefail
+      FILTERED_DIR="${AGENT_TEMPDIRECTORY}/github-sync-filtered"
+      COMMIT_MESSAGE_FILE="${AGENT_TEMPDIRECTORY}/git-sync-commit-message.txt"
+      echo "Eliminando temporales al finalizar"
+      rm -rf "${FILTERED_DIR}"
+      rm -f "${COMMIT_MESSAGE_FILE}"
+    displayName: Limpiar temporales finales
+    condition: always()
