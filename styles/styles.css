@@ -1,36 +1,42 @@
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************!*\
+/* !******************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/src/index.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./node_modules/glob-import-loader/index.js??ruleSet[1].rules[1].use[4]!./src/main/webpack/edslib/main.scss ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************/
-/* From animated.css */
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
+  \ ******************************************************************************************************************************************************************************************************************************************************************************************************/
+
 /* From animated.css */
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* From animated.css */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 *,
 *::before,
 *::after {
-  -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
@@ -57,35 +63,41 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 html .hidden,
 body .hidden {
   display: none !important;
 }
+
 html.notscroll,
 body.notscroll {
   overflow: hidden;
 }
+
 html.focusScroll,
 body.focusScroll {
-  -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
+
 html .wasisa-max-width > section,
 body .wasisa-max-width > section {
   padding-left: var(--spacing-xl);
   padding-right: var(--spacing-xl);
 }
+
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: var(--color-grey-500) var(--color-white);
 }
+
 html::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb {
   background-color: var(--color-grey-500);
   border-radius: 10px;
   border: 1px solid var(--color-white);
 }
+
 html::-webkit-scrollbar-track,
 body::-webkit-scrollbar-track {
   background: var(--color-white);
@@ -94,8 +106,6 @@ body::-webkit-scrollbar-track {
 
 html,
 body.wasisa-author-mode {
-  height: -webkit-fit-content !important;
-  height: -moz-fit-content !important;
   height: fit-content !important;
 }
 
@@ -103,6 +113,7 @@ body.wasisa-author-mode {
   padding: 0;
   height: inherit;
 }
+
 .wasisa-page-content .container {
   height: inherit;
 }
@@ -133,6 +144,7 @@ p {
 a {
   color: var(--color-brand-100);
 }
+
 a:focus, a:active {
   color: var(--color-brand-100);
 }
@@ -156,9 +168,8 @@ ul li {
 ul li.loading {
   margin: auto 0 var(--spacing-4xl) 0;
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: var(--gap-44);
   -webkit-box-pack: center;
@@ -189,37 +200,44 @@ body .wasisa-max-width > div {
     padding-right: 0;
   }
 }
+
 /* From animated.css */
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 .eds-mp-box-faq {
   padding: 0 0 var(--spacing-4xl) 0;
 }
+
 .eds-mp-box-faq__container {
   border: 1px solid var(--color-grey-400);
   padding: var(--spacing-3xl) var(--spacing-4xl);
 }
+
 .eds-mp-box-faq--title {
   font-weight: var(--font-weight-500);
   color: var(--color-brand-100);
   font-size: 24px;
   line-height: 130%;
   letter-spacing: 0;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
 }
+
 .eds-mp-box-faq--text {
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
   font-weight: 400;
   font-size: 18px;
   line-height: 140%;
   letter-spacing: 0;
 }
+
 @media (width > 1280px) {
   .eds-mp-box-faq {
     padding: var(--spacing-4xl) 0;
@@ -227,6 +245,7 @@ body .wasisa-max-width > div {
     max-width: var(--size-1168);
   }
 }
+
 @media (width > 1440px) {
   .eds-mp-box-faq {
     max-width: var(--size-1380);
@@ -238,29 +257,35 @@ body .wasisa-max-width > div {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 .eds-mp-box-head {
   padding: 0 0 var(--spacing-3xl) 0;
 }
+
 .eds-mp-box-head--title {
   padding: 0;
   color: var(--color-brand-700);
 }
+
 .eds-mp-box-head--text {
   font-weight: 400;
   font-size: 18px;
   line-height: 140%;
   letter-spacing: 0;
 }
+
 @media (width > 1280px) {
   .eds-mp-box-head {
     margin: 0 auto;
     max-width: var(--size-1168);
   }
 }
+
 @media (width > 1440px) {
   .eds-mp-box-head {
     max-width: var(--size-1380);
@@ -272,13 +297,16 @@ body .wasisa-max-width > div {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 .eds-mp-box-info {
   padding: 0 0 var(--spacing-3xl) 0;
 }
+
 .eds-mp-box-info__content {
   width: var(--size-100p);
   padding: var(--spacing-xl);
@@ -286,39 +314,36 @@ body .wasisa-max-width > div {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   background: var(--color-blue-100);
   border-radius: var(--spacing-xxs);
 }
+
 .eds-mp-box-info__icon {
   width: var(--size-32);
   height: var(--size-32);
 }
+
 .eds-mp-box-info__icon i {
   font-size: 2rem;
 }
+
 .eds-mp-box-info__text {
   text-align: justify;
-  gap: var(--gap-xl);
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   gap: var(--spacing-md);
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   width: var(--size-100p);
 }
+
 .eds-mp-box-info__text--text {
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-400);
@@ -327,15 +352,18 @@ body .wasisa-max-width > div {
   color: var(--color-brand-100);
   margin: var(--spacing-none);
 }
+
 .eds-mp-box-info__text--text a {
   font-weight: var(--font-weight-700);
 }
+
 @media (width > 1280px) {
   .eds-mp-box-info {
     margin: 0 auto;
     max-width: var(--size-1168);
   }
 }
+
 @media (width > 1440px) {
   .eds-mp-box-info {
     max-width: var(--size-1380);
@@ -347,39 +375,43 @@ body .wasisa-max-width > div {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 .eds-mp-card {
   padding: var(--spacing-3xl);
   background: var(--color-grey-100);
   border: 1px solid var(--color-grey-400);
 }
+
 .eds-mp-card--blue {
   border-color: var(--color-blue-100);
   background: var(--color-blue-100);
 }
+
 .eds-mp-card--white {
   border-color: var(--color-blue-400);
   background: var(--color-white);
 }
+
 .eds-mp-card__principal-tag {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   gap: var(--gap-8);
   margin: 0 0 var(--spacing-xl) 0;
 }
+
 .eds-mp-card__principal-tag--share {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
   text-decoration: none;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: end;
@@ -393,15 +425,16 @@ body .wasisa-max-width > div {
   letter-spacing: 0;
   color: var(--color-brand-100);
   cursor: pointer;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
+  flex-grow: 1;
           flex: 1;
 }
+
 .eds-mp-card__principal-tag--share i {
   font-size: var(--font-size-base);
   width: var(--size-base);
   height: var(--size-base);
 }
+
 .eds-mp-card__type--name {
   font-weight: var(--font-weight-700);
   font-size: var(--font-size);
@@ -410,6 +443,7 @@ body .wasisa-max-width > div {
   color: var(--color-black-100);
   margin: 0 0 var(--spacing-xs) 0;
 }
+
 .eds-mp-card__type--speciality {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-500);
@@ -418,6 +452,7 @@ body .wasisa-max-width > div {
   color: var(--color-brand-700);
   margin: 0 0 var(--spacing-xs) 0;
 }
+
 .eds-mp-card__type--num-member {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-400);
@@ -426,6 +461,7 @@ body .wasisa-max-width > div {
   letter-spacing: 0;
   color: var(--color-brand-100);
 }
+
 .eds-mp-card__type--center {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-500);
@@ -434,11 +470,11 @@ body .wasisa-max-width > div {
   color: var(--color-black-100);
   margin: 0 0 var(--spacing-md) 0;
 }
+
 .eds-mp-card__type--address {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   gap: var(--gap-8);
@@ -448,21 +484,22 @@ body .wasisa-max-width > div {
   line-height: var(--line-height-140p);
   letter-spacing: 0;
 }
+
 .eds-mp-card__type--address i {
   font-size: var(--font-size-base);
   width: var(--size-base);
   height: var(--size-base);
 }
+
 .eds-mp-card__type--address i::before {
   color: var(--color-black-100);
 }
+
 .eds-mp-card__type--location, .eds-mp-card__type--phone {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   gap: var(--gap-8) var(--gap-3xl);
@@ -471,214 +508,236 @@ body .wasisa-max-width > div {
   line-height: var(--line-height-140p);
   letter-spacing: 0;
 }
+
 .eds-mp-card__type--location .button-cmp, .eds-mp-card__type--phone .button-cmp {
   border: none;
 }
+
 .eds-mp-card__type--location .button-cmp__text, .eds-mp-card__type--phone .button-cmp__text {
-  font-weight: var(--font-weight-400);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-700);
   line-height: var(--line-height-28);
   letter-spacing: 0;
   border: none;
-  color: var(--color-brand-100);
   height: var(--size-28);
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
   gap: var(--gap-8);
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   background: none;
   color: var(--color-brand-100);
   min-height: var(--size-20);
 }
+
 .eds-mp-card__type--location .button-cmp__text i, .eds-mp-card__type--phone .button-cmp__text i {
   font-size: var(--font-size-base);
   width: var(--size-base);
   height: var(--size-base);
 }
+
 .eds-mp-card__info {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   width: 100%;
   gap: var(--gap-xl);
   margin: 0 0 var(--spacing-xl) 0;
 }
+
 .eds-mp-card__info--contact {
   width: 100%;
 }
+
 .eds-mp-card__info--location {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   gap: var(--gap-8);
   margin: 0 0 var(--spacing-md) 0;
 }
+
 .eds-mp-card__info--tags {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   gap: var(--gap-8);
 }
+
 .eds-mp-card__info--buttons {
   width: var(--size-100p);
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   gap: var(--gap-xl);
 }
+
 .eds-mp-card__info--buttons-detail {
   width: calc(50% - 8px);
 }
+
 .eds-mp-card__info--buttons-detail .button-cmp__text {
   width: var(--size-100p);
   letter-spacing: var(--letter-spacing-2);
 }
+
 .eds-mp-card--type-b {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: var(--gap-3xl);
 }
+
 .eds-mp-card--type-b .eds-mp-card__type--name {
   font-size: var(--font-size-01);
   margin: 0 0 var(--spacing-md) 0;
   color: var(--color-brand-700);
 }
+
 .eds-mp-card--type-b .eds-mp-card__type--num-member {
   color: var(--color-brand-700);
 }
+
 .eds-mp-card--type-b .eds-mp-card__type--speciality {
   margin: 0 0 var(--spacing-md) 0;
 }
+
 .eds-mp-card--type-b .eds-mp-card__type--center {
   color: var(--color-brand-100);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-700);
   text-decoration: none;
 }
+
 .eds-mp-card--type-b .eds-mp-card__type--address i {
   font-size: var(--font-size-01);
   width: var(--size-3xl);
   height: var(--size-3xl);
 }
+
 .eds-mp-card--type-b .eds-mp-card__type--location {
   margin: 0 0 var(--spacing-md) 0;
 }
+
 .eds-mp-card--type-c {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: var(--gap-3xl);
 }
+
 .eds-mp-card--type-c .eds-mp-card__type--name {
   font-size: var(--font-size-01);
   margin: 0 0 var(--spacing-md) 0;
   color: var(--color-brand-700);
 }
+
 .eds-mp-card--type-c .eds-mp-card__type--address i {
   font-size: var(--font-size-01);
   width: var(--size-3xl);
   height: var(--size-3xl);
 }
+
 .eds-mp-card--type-c .eds-mp-card__type--location {
   margin: 0 0 var(--spacing-md) 0;
 }
+
 @media (width > 992px) {
   .eds-mp-card__principal-tag--share {
     width: var(--size-140);
   }
+
   .eds-mp-card__info {
-    -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: start;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
+
   .eds-mp-card__info--contact {
     width: auto;
   }
+
   .eds-mp-card__info--contact .eds-mp-card__type--center, .eds-mp-card__info--contact .eds-mp-card__type--address {
     margin: var(--spacing-xl) 0 var(--spacing-md) 0;
   }
+
   .eds-mp-card__info--contact .eds-mp-card__type--center + div, .eds-mp-card__info--contact .eds-mp-card__type--address + div {
     margin: 0 0 var(--spacing-md) 0;
   }
+
   .eds-mp-card__info--location {
     margin: var(--spacing-xl) 0 0 0;
   }
+
   .eds-mp-card__info--tags {
     width: var(--size-170);
     border-left: 1px solid var(--color-grey-400);
     padding: 0 0 0 var(--spacing-xl);
   }
+
   .eds-mp-card__info--buttons {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: end;
   }
+
   .eds-mp-card__info--buttons-detail {
     width: auto;
   }
+
   .eds-mp-card--type-b .eds-mp-card__block {
     width: calc(50% - 9.5rem);
   }
+
   .eds-mp-card--type-b .eds-mp-card__info--tags {
     border: none;
     width: auto;
     padding: 0;
   }
+
   .eds-mp-card--type-b .eds-mp-card__info--buttons {
-    -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     width: var(--size-254);
     gap: var(--gap-8);
-    -webkit-box-align: end;
         -ms-flex-align: end;
             align-items: end;
   }
+
   .eds-mp-card--type-b .eds-mp-card__info--buttons .button-cmp__text {
     min-width: var(--size-145);
   }
+
   .eds-mp-card--type-c .eds-mp-card__block {
     width: 100%;
   }
+
   .eds-mp-card--type-c .eds-mp-card__info--tags {
     border: none;
     width: auto;
     padding: 0;
   }
+
   .eds-mp-card--type-c .eds-mp-card__info--buttons {
-    -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     gap: var(--gap-8);
-    -webkit-box-align: end;
         -ms-flex-align: end;
             align-items: end;
   }
+
   .eds-mp-card--type-c .eds-mp-card__info--buttons .button-cmp__text {
     min-width: 6.563rem;
   }
@@ -689,13 +748,16 @@ body .wasisa-max-width > div {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 .eds-mp-doctor-center {
   padding: 0 0 var(--spacing-3xl) 0;
 }
+
 .eds-mp-doctor-center__title {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-700);
@@ -704,28 +766,32 @@ body .wasisa-max-width > div {
   margin: 0 0 var(--spacing-3xl) 0;
   color: var(--color-black-100);
 }
+
 .eds-mp-doctor-center__container {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: var(--gap-xl);
 }
+
 .eds-mp-doctor-center__container .eds-mp-card {
   width: 100%;
 }
+
 @media (width > 768px) {
   .eds-mp-doctor-center__container .eds-mp-card {
     width: calc(50% - 0.5rem);
   }
 }
+
 @media (width > 1280px) {
   .eds-mp-doctor-center {
     margin: 0 auto;
     max-width: var(--size-1168);
   }
 }
+
 @media (width > 1440px) {
   .eds-mp-doctor-center {
     max-width: var(--size-1380);
@@ -737,13 +803,16 @@ body .wasisa-max-width > div {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 .eds-mp-faq {
   padding: 0 0 var(--spacing-3xl) 0;
 }
+
 .eds-mp-faq__header--title {
   font-size: var(--font-size-xxs);
   font-weight: var(--font-weight-500);
@@ -754,43 +823,43 @@ body .wasisa-max-width > div {
   text-transform: uppercase;
   color: var(--color-cockatrice-700);
 }
+
 .eds-mp-faq__header--title-sub {
   margin: 0 0 var(--spacing-3xl) 0;
   text-align: left;
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+
 .eds-mp-faq__container {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
   gap: var(--gap-3xl);
 }
+
 .eds-mp-faq__item {
   background-color: var(--color-blue-200);
   padding: var(--spacing-xl);
   width: var(--size-100p);
 }
+
 .eds-mp-faq__item--title {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   color: var(--color-brand-100);
@@ -798,17 +867,19 @@ body .wasisa-max-width > div {
   font-weight: var(--font-weight-700);
   cursor: pointer;
 }
+
 .eds-mp-faq__item--title::marker {
   content: "";
 }
+
 .eds-mp-faq__item--title::after {
-  font-family: "asisa";
+  font-family: asisa;
   speak: never;
   font-style: normal;
-  font-weight: normal;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -819,21 +890,26 @@ body .wasisa-max-width > div {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-700);
 }
+
 .eds-mp-faq__item--text {
   padding: var(--spacing-xl) 0;
   letter-spacing: 0;
 }
+
 .eds-mp-faq__item[open] summary::after {
   content: var(--icon-minus-03);
 }
+
 @media (width > 992px) {
   .eds-mp-faq__container {
     gap: var(--gap-3xl) var(--gap-56);
   }
+
   .eds-mp-faq__item {
     width: calc(50% - 1.75rem);
   }
 }
+
 @media (width > 1280px) {
   .eds-mp-faq {
     padding: var(--spacing-4xl) 0;
@@ -841,6 +917,7 @@ body .wasisa-max-width > div {
     max-width: var(--size-1168);
   }
 }
+
 @media (width > 1440px) {
   .eds-mp-faq {
     max-width: var(--size-1380);
@@ -852,16 +929,17 @@ body .wasisa-max-width > div {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 .edp-mp-notfound {
   padding: 0 0 var(--spacing-3xl) 0;
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -869,10 +947,12 @@ body .wasisa-max-width > div {
   gap: var(--gap-3xl);
   text-align: center;
 }
+
 .edp-mp-notfound i {
   font-size: var(--font-size-80);
   width: 100%;
 }
+
 .edp-mp-notfound__title {
   font-weight: var(--font-weight-700);
   font-size: var(--font-size-xl-01);
@@ -881,6 +961,7 @@ body .wasisa-max-width > div {
   color: var(--color-brand-700);
   width: 100%;
 }
+
 .edp-mp-notfound__text {
   font-weight: var(--font-weight-400);
   font-size: var(--font-size-sm);
@@ -889,6 +970,7 @@ body .wasisa-max-width > div {
   letter-spacing: 0;
   width: 100%;
 }
+
 @media (width > 768px) {
   .edp-mp-notfound {
     width: 50%;
@@ -901,10 +983,12 @@ body .wasisa-max-width > div {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 .eds-mp-other-localities-title {
   font-size: var(--font-size-01);
   font-weight: var(--font-weight-500);
@@ -913,27 +997,28 @@ body .wasisa-max-width > div {
   margin: 0 0 var(--spacing-3xl) 0;
   color: var(--color-brand-100);
 }
+
 .eds-mp-other-localities-list {
   margin: 0 0 var(--spacing-4xl) 0;
 }
+
 .eds-mp-other-localities-container {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: var(--gap-8);
   margin: 0;
   padding: 0 0 var(--spacing-4xl) 0;
 }
+
 .eds-mp-other-localities-item {
   border: 1px solid var(--color-blue-400);
   padding: var(--spacing-md);
   background: var(--color-white);
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   gap: var(--gap-8);
@@ -942,56 +1027,65 @@ body .wasisa-max-width > div {
           justify-content: space-between;
   width: calc(50% - 0.5rem);
 }
+
 .eds-mp-other-localities-block--locate, .eds-mp-other-localities-block--professional {
   font-weight: var(--font-weight-700);
   font-size: var(--font-size-base);
   line-height: var(--line-height-140p);
   letter-spacing: 0;
 }
+
 .eds-mp-other-localities-block--locate {
   color: var(--color-brand-700);
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.5rem;
 }
+
 .eds-mp-other-localities-block--professional {
   font-weight: var(--font-weight-400);
   color: var(--color-grey-700);
 }
+
 .eds-mp-other-localities-link {
   width: 2rem;
   height: 2rem;
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
+
 .eds-mp-other-localities-link a {
   text-decoration: none;
   display: block;
 }
+
 .eds-mp-other-localities-link i {
   font-size: var(--font-size-01);
 }
+
 @media (width > 768px) {
   .eds-mp-other-localities-container {
     gap: var(--gap-xl);
   }
+
   .eds-mp-other-localities-item {
     gap: var(--gap-xl);
     width: calc(19% - 0.5rem);
     padding: var(--spacing-md) var(--spacing-xl);
   }
 }
+
 @media (width > 1280px) {
   .eds-mp-other-localities {
     margin: 0 auto;
     max-width: var(--size-1168);
   }
 }
+
 @media (width > 1440px) {
   .eds-mp-other-localities {
     max-width: var(--size-1380);
@@ -1003,10 +1097,12 @@ body .wasisa-max-width > div {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 .eds-mp-other-specs__title {
   font-size: var(--font-size-01);
   font-weight: var(--font-weight-500);
@@ -1015,42 +1111,49 @@ body .wasisa-max-width > div {
   margin: 0 0 var(--spacing-3xl) 0;
   color: var(--color-brand-100);
 }
+
 .eds-mp-other-specs__container {
   margin: 0;
   padding: 0;
   padding: 0 0 var(--spacing-4xl) 0;
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: var(--gap-3xl);
 }
+
 .eds-mp-other-specs__container .cmp-tag-template {
   display: inline-block;
   text-decoration: none;
 }
+
 .eds-mp-other-specs__container .cmp-tag-template__text {
   margin: 0;
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-400);
   color: var(--color-black-100);
 }
+
 .eds-mp-other-specs__container .cmp-tag-template--blue-100 {
   border: 1px solid var(--color-blue-400);
 }
+
 .eds-mp-other-specs__container .cmp-tag-template--blue-100.active, .eds-mp-other-specs__container .cmp-tag-template--blue-100:hover {
   background: var(--color-blue-100);
 }
+
 .eds-mp-other-specs__container .cmp-tag-template--blue-100.active .cmp-tag-template__text, .eds-mp-other-specs__container .cmp-tag-template--blue-100:hover .cmp-tag-template__text {
   color: var(--color-brand-100);
 }
+
 @media (width > 1280px) {
   .eds-mp-other-specs {
     margin: 0 auto;
     max-width: var(--size-1168);
   }
 }
+
 @media (width > 1440px) {
   .eds-mp-other-specs {
     max-width: var(--size-1380);
@@ -1062,14 +1165,16 @@ body .wasisa-max-width > div {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 .eds-mp-pagination {
   overflow: hidden;
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
   max-width: 100%;
   margin: 0 auto;
@@ -1079,11 +1184,11 @@ body .wasisa-max-width > div {
   padding: 0;
   gap: 0 var(--gap-8);
 }
+
 .eds-mp-pagination li {
   cursor: pointer;
   margin: 0;
   display: inline-block;
-  text-align: center;
   list-style: none;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -1097,16 +1202,15 @@ body .wasisa-max-width > div {
   color: var(--color-brand-100);
   border-radius: var(--b-radius-4);
 }
+
 .eds-mp-pagination li:nth-child(1), .eds-mp-pagination li:nth-last-child(1) {
   font-size: 0;
   position: relative;
   width: var(--size-32);
   height: var(--size-32);
-  padding: 0;
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
@@ -1116,14 +1220,16 @@ body .wasisa-max-width > div {
   gap: 0;
   overflow: hidden;
 }
+
 .eds-mp-pagination li:nth-child(1)::before, .eds-mp-pagination li:nth-last-child(1)::before {
-  font-family: "asisa";
+  font-family: asisa;
   speak: never;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -1135,25 +1241,27 @@ body .wasisa-max-width > div {
   border-radius: initial;
   color: var(--color-brand-100);
 }
+
 .eds-mp-pagination li:nth-child(1)::before {
   content: var(--icon-chevron-left);
 }
+
 .eds-mp-pagination li:nth-last-child(1)::before {
   content: var(--icon-chevron-right);
 }
+
 .eds-mp-pagination li.disabled {
   color: var(--color-grey-500);
   background: none;
   cursor: default;
   pointer-events: none;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
+
 .eds-mp-pagination li.disabled::before {
   color: var(--color-grey-500);
 }
+
 .eds-mp-pagination li.active, .eds-mp-pagination li:hover {
   background: var(--color-blue-100);
 }
@@ -1163,25 +1271,28 @@ body .wasisa-max-width > div {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 .eds-mp-spec-center {
   width: 100%;
   border-radius: var(--b-radius-2);
   padding: var(--spacing-3xl);
   border: 1px solid var(--color-blue-400);
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: var(--gap-3xl);
 }
+
 .eds-mp-spec-center__header {
   width: 100%;
 }
+
 .eds-mp-spec-center__header--title {
   font-weight: var(--font-weight-700);
   font-size: var(--font-size);
@@ -1190,29 +1301,32 @@ body .wasisa-max-width > div {
   color: var(--color-brand-700);
   margin: 0 0 var(--spacing-xl) 0;
 }
+
 .eds-mp-spec-center__header--actions {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: var(--gap-8);
 }
+
 .eds-mp-spec-center__header--actions .button-cmp {
   width: 100%;
 }
+
 .eds-mp-spec-center__header--actions .button-cmp__text {
   width: 100%;
   letter-spacing: var(--letter-spacing-2);
 }
+
 .eds-mp-spec-center__details {
   width: 100%;
 }
+
 .eds-mp-spec-center__details--toggle {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   font-weight: var(--font-weight-500);
@@ -1223,17 +1337,20 @@ body .wasisa-max-width > div {
   gap: var(--gap-xl);
   position: relative;
 }
+
 .eds-mp-spec-center__details--toggle::marker {
   content: "";
 }
+
 .eds-mp-spec-center__details--toggle::after {
-  font-family: "asisa";
+  font-family: asisa;
   speak: never;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -1241,29 +1358,29 @@ body .wasisa-max-width > div {
   color: var(--color-brand-100);
   content: var(--icon-chevron-down);
 }
+
 .eds-mp-spec-center__details[open] summary::after {
   content: var(--icon-chevron-up);
 }
+
 .eds-mp-spec-center__details--container {
   padding: var(--spacing-xl) 0;
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: var(--gap-3xl);
   width: 100%;
 }
+
 .eds-mp-spec-center__details--block-title {
   width: var(--size-100p);
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   gap: var(--gap-xl);
-  font-weight: var(--font-weight-700);
   font-size: var(--font-size-base);
   line-height: var(--line-height-140p);
   letter-spacing: 0;
@@ -1271,13 +1388,16 @@ body .wasisa-max-width > div {
   font-weight: var(--font-weight-400);
   color: var(--color-grey-700);
 }
+
 .eds-mp-spec-center__details--block-title i::before {
   color: var(--color-grey-700);
 }
+
 .eds-mp-spec-center__details--block-list {
   margin: 0;
   padding: 0 0 0 var(--spacing-xl);
 }
+
 .eds-mp-spec-center__details--block-item {
   list-style: disc;
   font-size: var(--font-size-xs);
@@ -1285,51 +1405,61 @@ body .wasisa-max-width > div {
   color: var(--color-grey-700);
   margin: 0 0 var(--spacing-md) 0;
 }
+
 .eds-mp-spec-center__details--block-item::marker {
   color: var(--color-grey-700);
 }
+
 .eds-mp-spec-center__details--block-item:last-child {
   margin: 0;
 }
+
 .eds-mp-spec-center__details--block-item ul {
   margin: 0;
   padding: var(--spacing-md) 0 0 var(--spacing-xl);
 }
+
 .eds-mp-spec-center__details--block-item ul li {
   list-style: disc;
   font-size: var(--font-size-xs);
   margin: 0 0 var(--spacing-md) 0;
 }
+
 .eds-mp-spec-center__details--block-item ul li::marker {
   color: var(--color-grey-700);
 }
+
 .eds-mp-spec-center__details--block-item ul li:last-child {
   margin: 0;
 }
+
 .eds-mp-spec-center__details--block-item a {
   text-decoration: none;
   color: var(--color-grey-700);
 }
+
 .eds-mp-spec-center__details--block p {
   font-size: var(--font-size-xs);
   line-height: var(--line-height-140p);
   color: var(--color-grey-700);
 }
+
 @media (width > 992px) {
   .eds-mp-spec-center__header {
     display: -webkit-box;
-    display: -ms-flexbox;
+    display: flexbox;
     display: flex;
-    -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
+
   .eds-mp-spec-center__header--title {
     margin: 0;
   }
+
   .eds-mp-spec-center__header--actions {
     width: 50%;
     -webkit-box-pack: end;
@@ -1337,13 +1467,16 @@ body .wasisa-max-width > div {
             justify-content: end;
     gap: var(--gap-3xl);
   }
+
   .eds-mp-spec-center__header--actions .button-cmp {
     width: auto;
     min-width: var(--size-140);
   }
+
   .eds-mp-spec-center__details--container {
     width: 100%;
   }
+
   .eds-mp-spec-center__details--block {
     width: 32%;
   }
@@ -1354,13 +1487,16 @@ body .wasisa-max-width > div {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 .eds-mp-spec {
   padding: 0 0 var(--spacing-4xl) 0;
 }
+
 .eds-mp-spec-title {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-700);
@@ -1369,17 +1505,18 @@ body .wasisa-max-width > div {
   margin: 0 0 var(--spacing-3xl) 0;
   color: var(--color-black-100);
 }
+
 .eds-mp-spec-list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: var(--gap-8);
 }
+
 .eds-mp-spec-item {
   border: 1px solid var(--color-blue-400);
   background: var(--color-white);
@@ -1388,6 +1525,7 @@ body .wasisa-max-width > div {
   text-align: center;
   width: calc(50% - 0.5rem);
 }
+
 .eds-mp-spec-item i {
   font-size: var(--font-size-01);
   display: inline-block;
@@ -1395,6 +1533,7 @@ body .wasisa-max-width > div {
   width: 1.5rem;
   margin: 0 0 var(--spacing-lg) 0;
 }
+
 .eds-mp-spec-item p {
   font-size: var(--font-size-base);
   line-height: var(--line-height-140p);
@@ -1403,34 +1542,41 @@ body .wasisa-max-width > div {
   width: 100%;
   margin: 0 0 var(--spacing-xs) 0;
 }
+
 .eds-mp-spec-item p a {
   display: block;
   font-weight: var(--font-weight-700);
   text-decoration: none;
 }
+
 .eds-mp-spec-item--name {
   font-weight: var(--font-weight-700);
   color: var(--color-brand-700);
 }
+
 .eds-mp-spec-item--spec {
   font-weight: var(--font-weight-400);
   color: var(--color-grey-700);
 }
+
 @media (width > 768px) {
   .eds-mp-spec-list {
     gap: var(--gap-xl);
   }
+
   .eds-mp-spec-item {
     padding: var(--spacing-xl);
     width: calc(25% - 0.75rem);
   }
 }
+
 @media (width > 1280px) {
   .eds-mp-spec {
     margin: 0 auto;
     max-width: var(--size-1168);
   }
 }
+
 @media (width > 1440px) {
   .eds-mp-spec {
     max-width: var(--size-1380);
@@ -1442,18 +1588,20 @@ body .wasisa-max-width > div {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 .eds-mp-tabs {
   padding: 0 0 var(--spacing-3xl) 0;
 }
+
 .eds-mp-tabs__nav {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: initial;
       flex-wrap: initial;
   list-style: none;
   padding: var(--spacing-xs) 0 var(--spacing-md) 0;
@@ -1468,13 +1616,13 @@ body .wasisa-max-width > div {
   scrollbar-width: thin;
   scrollbar-color: var(--color-neutral-00) var(--color-neutral-00);
 }
+
 .eds-mp-tabs__nav--item {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-700);
   padding: var(--spacing-xm) 0;
   border-radius: var(--b-radius-2);
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 auto;
+  flex-grow: 1;
           flex: 1 0 auto;
   text-align: center;
   color: var(--color-brand-100);
@@ -1484,44 +1632,47 @@ body .wasisa-max-width > div {
   cursor: pointer;
   min-width: 30%;
 }
+
 .eds-mp-tabs__nav--item--active, .eds-mp-tabs__nav--item.active, .eds-mp-tabs__nav--item:hover {
   font-weight: var(--font-weight-700);
   opacity: 1;
   color: var(--color-white);
   background: var(--color-brand-100);
 }
+
 .eds-mp-tabs__container {
   padding: var(--spacing-3xl) 0 0 0;
 }
+
 .eds-mp-tabs__content {
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
   gap: var(--gap-3xl);
 }
+
 .eds-mp-tabs__content .eds-mp-card,
 .eds-mp-tabs__content .eds-mp-pagination {
   width: 100%;
 }
+
 .eds-mp-tabs__loading {
   margin: auto;
   width: 3rem;
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
   gap: var(--gap-xl);
   min-height: 6rem;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
+
 .eds-mp-tabs__loading p {
   font-weight: var(--font-weight-700);
   font-size: var(--font-size-xl-01);
@@ -1532,32 +1683,35 @@ body .wasisa-max-width > div {
   padding: var(--spacing-xl) 0;
   color: var(--color-brand-700);
 }
+
 @media (width > 768px) {
   .eds-mp-tabs__nav {
     top: initial;
     gap: 0 var(--gap-32);
   }
+
   .eds-mp-tabs__nav--item {
     padding: var(--spacing-lg-01) var(--spacing-xl);
     font-size: var(--font-size-sm);
     line-height: var(--line-height-30);
     min-width: var(--size-170);
-    max-width: -webkit-fit-content;
-    max-width: -moz-fit-content;
     max-width: fit-content;
   }
 }
+
 @media (width > 992px) {
   .eds-mp-tabs__content .eds-mp-card {
     width: calc(50% - 0.75rem);
   }
 }
+
 @media (width > 1280px) {
   .eds-mp-tabs {
     margin: 0 auto;
     max-width: var(--size-1168);
   }
 }
+
 @media (width > 1440px) {
   .eds-mp-tabs {
     max-width: var(--size-1380);
@@ -1569,10 +1723,12 @@ body .wasisa-max-width > div {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 .eds-mp-user__subtitle {
   font-weight: var(--font-weight-700);
   font-size: var(--font-size-sm);
@@ -1581,24 +1737,27 @@ body .wasisa-max-width > div {
   margin: 0 0 var(--spacing-3xl) 0;
   color: var(--color-black-100);
 }
+
 .eds-mp-user__content {
   margin: 0 0 var(--spacing-3xl) 0;
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: var(--gap-3xl);
 }
+
 .eds-mp-user__content .eds-mp-card {
   width: 100%;
 }
+
 @media (width > 1280px) {
   .eds-mp-user {
     margin: 0 auto;
     max-width: var(--size-1168);
   }
 }
+
 @media (width > 1440px) {
   .eds-mp-user {
     max-width: var(--size-1380);
@@ -1610,10 +1769,12 @@ body .wasisa-max-width > div {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 .cuadro-medico-other-localidades-wrapper--blue {
   padding-top: var(--spacing-3xl);
   padding-bottom: var(--spacing-4xl);
@@ -1626,30 +1787,35 @@ body .wasisa-max-width > div {
     background: var(--color-blue-200);
   }
 }
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************!*\
+
+/* !******************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/src/index.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./node_modules/glob-import-loader/index.js??ruleSet[1].rules[1].use[4]!./src/main/webpack/edslib/base.scss ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************/
+  \ ******************************************************************************************************************************************************************************************************************************************************************************************************/
+
 /* From animated.css */
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 *,
 *::before,
 *::after {
-  -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
@@ -1676,35 +1842,41 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 html .hidden,
 body .hidden {
   display: none !important;
 }
+
 html.notscroll,
 body.notscroll {
   overflow: hidden;
 }
+
 html.focusScroll,
 body.focusScroll {
-  -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
+
 html .wasisa-max-width > section,
 body .wasisa-max-width > section {
   padding-left: var(--spacing-xl);
   padding-right: var(--spacing-xl);
 }
+
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: var(--color-grey-500) var(--color-white);
 }
+
 html::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb {
   background-color: var(--color-grey-500);
   border-radius: 10px;
   border: 1px solid var(--color-white);
 }
+
 html::-webkit-scrollbar-track,
 body::-webkit-scrollbar-track {
   background: var(--color-white);
@@ -1713,8 +1885,6 @@ body::-webkit-scrollbar-track {
 
 html,
 body.wasisa-author-mode {
-  height: -webkit-fit-content !important;
-  height: -moz-fit-content !important;
   height: fit-content !important;
 }
 
@@ -1722,6 +1892,7 @@ body.wasisa-author-mode {
   padding: 0;
   height: inherit;
 }
+
 .wasisa-page-content .container {
   height: inherit;
 }
@@ -1752,6 +1923,7 @@ p {
 a {
   color: var(--color-brand-100);
 }
+
 a:focus, a:active {
   color: var(--color-brand-100);
 }
@@ -1775,9 +1947,8 @@ ul li {
 ul li.loading {
   margin: auto 0 var(--spacing-4xl) 0;
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: var(--gap-44);
   -webkit-box-pack: center;
@@ -1808,68 +1979,83 @@ body .wasisa-max-width > div {
     padding-right: 0;
   }
 }
-/*!*******************************************************************************************************************************************************************************************************************************************************************************************************!*\
+
+/* !*******************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/src/index.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./node_modules/glob-import-loader/index.js??ruleSet[1].rules[1].use[4]!./src/main/webpack/edslib/mixin.scss ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************************************/
+  \ *******************************************************************************************************************************************************************************************************************************************************************************************************/
+
 /* From animated.css */
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
-/*!************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* !************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/src/index.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./node_modules/glob-import-loader/index.js??ruleSet[1].rules[1].use[4]!./src/main/webpack/edslib/mp-box-faq.scss ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************************************/
+  \ ************************************************************************************************************************************************************************************************************************************************************************************************************/
+
 /* From animated.css */
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .eds-mp-box-faq {
   padding: 0 0 var(--spacing-4xl) 0;
 }
+
 .eds-mp-box-faq__container {
   border: 1px solid var(--color-grey-400);
   padding: var(--spacing-3xl) var(--spacing-4xl);
 }
+
 .eds-mp-box-faq--title {
   font-weight: var(--font-weight-500);
   color: var(--color-brand-100);
   font-size: 24px;
   line-height: 130%;
   letter-spacing: 0;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
 }
+
 .eds-mp-box-faq--text {
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
   font-weight: 400;
   font-size: 18px;
   line-height: 140%;
   letter-spacing: 0;
 }
+
 @media (width > 1280px) {
   .eds-mp-box-faq {
     padding: var(--spacing-4xl) 0;
@@ -1877,78 +2063,96 @@ body .wasisa-max-width > div {
     max-width: var(--size-1168);
   }
 }
+
 @media (width > 1440px) {
   .eds-mp-box-faq {
     max-width: var(--size-1380);
   }
 }
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+
+/* !*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/src/index.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./node_modules/glob-import-loader/index.js??ruleSet[1].rules[1].use[4]!./src/main/webpack/edslib/mp-box-head.scss ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************/
+  \ *************************************************************************************************************************************************************************************************************************************************************************************************************/
+
 /* From animated.css */
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .eds-mp-box-head {
   padding: 0 0 var(--spacing-3xl) 0;
 }
+
 .eds-mp-box-head--title {
   padding: 0;
   color: var(--color-brand-700);
 }
+
 .eds-mp-box-head--text {
   font-weight: 400;
   font-size: 18px;
   line-height: 140%;
   letter-spacing: 0;
 }
+
 @media (width > 1280px) {
   .eds-mp-box-head {
     margin: 0 auto;
     max-width: var(--size-1168);
   }
 }
+
 @media (width > 1440px) {
   .eds-mp-box-head {
     max-width: var(--size-1380);
   }
 }
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+
+/* !*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/src/index.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./node_modules/glob-import-loader/index.js??ruleSet[1].rules[1].use[4]!./src/main/webpack/edslib/mp-box-info.scss ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************/
+  \ *************************************************************************************************************************************************************************************************************************************************************************************************************/
+
 /* From animated.css */
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .eds-mp-box-info {
   padding: 0 0 var(--spacing-3xl) 0;
 }
+
 .eds-mp-box-info__content {
   width: var(--size-100p);
   padding: var(--spacing-xl);
@@ -1956,39 +2160,36 @@ body .wasisa-max-width > div {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   background: var(--color-blue-100);
   border-radius: var(--spacing-xxs);
 }
+
 .eds-mp-box-info__icon {
   width: var(--size-32);
   height: var(--size-32);
 }
+
 .eds-mp-box-info__icon i {
   font-size: 2rem;
 }
+
 .eds-mp-box-info__text {
   text-align: justify;
-  gap: var(--gap-xl);
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   gap: var(--spacing-md);
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   width: var(--size-100p);
 }
+
 .eds-mp-box-info__text--text {
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-400);
@@ -1997,69 +2198,80 @@ body .wasisa-max-width > div {
   color: var(--color-brand-100);
   margin: var(--spacing-none);
 }
+
 .eds-mp-box-info__text--text a {
   font-weight: var(--font-weight-700);
 }
+
 @media (width > 1280px) {
   .eds-mp-box-info {
     margin: 0 auto;
     max-width: var(--size-1168);
   }
 }
+
 @media (width > 1440px) {
   .eds-mp-box-info {
     max-width: var(--size-1380);
   }
 }
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+
+/* !*********************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/src/index.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./node_modules/glob-import-loader/index.js??ruleSet[1].rules[1].use[4]!./src/main/webpack/edslib/mp-card.scss ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************/
+  \ *********************************************************************************************************************************************************************************************************************************************************************************************************/
+
 /* From animated.css */
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .eds-mp-card {
   padding: var(--spacing-3xl);
   background: var(--color-grey-100);
   border: 1px solid var(--color-grey-400);
 }
+
 .eds-mp-card--blue {
   border-color: var(--color-blue-100);
   background: var(--color-blue-100);
 }
+
 .eds-mp-card--white {
   border-color: var(--color-blue-400);
   background: var(--color-white);
 }
+
 .eds-mp-card__principal-tag {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   gap: var(--gap-8);
   margin: 0 0 var(--spacing-xl) 0;
 }
+
 .eds-mp-card__principal-tag--share {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
   text-decoration: none;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: end;
@@ -2073,15 +2285,16 @@ body .wasisa-max-width > div {
   letter-spacing: 0;
   color: var(--color-brand-100);
   cursor: pointer;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
+  flex-grow: 1;
           flex: 1;
 }
+
 .eds-mp-card__principal-tag--share i {
   font-size: var(--font-size-base);
   width: var(--size-base);
   height: var(--size-base);
 }
+
 .eds-mp-card__type--name {
   font-weight: var(--font-weight-700);
   font-size: var(--font-size);
@@ -2090,6 +2303,7 @@ body .wasisa-max-width > div {
   color: var(--color-black-100);
   margin: 0 0 var(--spacing-xs) 0;
 }
+
 .eds-mp-card__type--speciality {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-500);
@@ -2098,6 +2312,7 @@ body .wasisa-max-width > div {
   color: var(--color-brand-700);
   margin: 0 0 var(--spacing-xs) 0;
 }
+
 .eds-mp-card__type--num-member {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-400);
@@ -2106,6 +2321,7 @@ body .wasisa-max-width > div {
   letter-spacing: 0;
   color: var(--color-brand-100);
 }
+
 .eds-mp-card__type--center {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-500);
@@ -2114,11 +2330,11 @@ body .wasisa-max-width > div {
   color: var(--color-black-100);
   margin: 0 0 var(--spacing-md) 0;
 }
+
 .eds-mp-card__type--address {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   gap: var(--gap-8);
@@ -2128,21 +2344,22 @@ body .wasisa-max-width > div {
   line-height: var(--line-height-140p);
   letter-spacing: 0;
 }
+
 .eds-mp-card__type--address i {
   font-size: var(--font-size-base);
   width: var(--size-base);
   height: var(--size-base);
 }
+
 .eds-mp-card__type--address i::before {
   color: var(--color-black-100);
 }
+
 .eds-mp-card__type--location, .eds-mp-card__type--phone {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   gap: var(--gap-8) var(--gap-3xl);
@@ -2151,241 +2368,270 @@ body .wasisa-max-width > div {
   line-height: var(--line-height-140p);
   letter-spacing: 0;
 }
+
 .eds-mp-card__type--location .button-cmp, .eds-mp-card__type--phone .button-cmp {
   border: none;
 }
+
 .eds-mp-card__type--location .button-cmp__text, .eds-mp-card__type--phone .button-cmp__text {
-  font-weight: var(--font-weight-400);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-700);
   line-height: var(--line-height-28);
   letter-spacing: 0;
   border: none;
-  color: var(--color-brand-100);
   height: var(--size-28);
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
   gap: var(--gap-8);
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   background: none;
   color: var(--color-brand-100);
   min-height: var(--size-20);
 }
+
 .eds-mp-card__type--location .button-cmp__text i, .eds-mp-card__type--phone .button-cmp__text i {
   font-size: var(--font-size-base);
   width: var(--size-base);
   height: var(--size-base);
 }
+
 .eds-mp-card__info {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   width: 100%;
   gap: var(--gap-xl);
   margin: 0 0 var(--spacing-xl) 0;
 }
+
 .eds-mp-card__info--contact {
   width: 100%;
 }
+
 .eds-mp-card__info--location {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   gap: var(--gap-8);
   margin: 0 0 var(--spacing-md) 0;
 }
+
 .eds-mp-card__info--tags {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   gap: var(--gap-8);
 }
+
 .eds-mp-card__info--buttons {
   width: var(--size-100p);
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   gap: var(--gap-xl);
 }
+
 .eds-mp-card__info--buttons-detail {
   width: calc(50% - 8px);
 }
+
 .eds-mp-card__info--buttons-detail .button-cmp__text {
   width: var(--size-100p);
   letter-spacing: var(--letter-spacing-2);
 }
+
 .eds-mp-card--type-b {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: var(--gap-3xl);
 }
+
 .eds-mp-card--type-b .eds-mp-card__type--name {
   font-size: var(--font-size-01);
   margin: 0 0 var(--spacing-md) 0;
   color: var(--color-brand-700);
 }
+
 .eds-mp-card--type-b .eds-mp-card__type--num-member {
   color: var(--color-brand-700);
 }
+
 .eds-mp-card--type-b .eds-mp-card__type--speciality {
   margin: 0 0 var(--spacing-md) 0;
 }
+
 .eds-mp-card--type-b .eds-mp-card__type--center {
   color: var(--color-brand-100);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-700);
   text-decoration: none;
 }
+
 .eds-mp-card--type-b .eds-mp-card__type--address i {
   font-size: var(--font-size-01);
   width: var(--size-3xl);
   height: var(--size-3xl);
 }
+
 .eds-mp-card--type-b .eds-mp-card__type--location {
   margin: 0 0 var(--spacing-md) 0;
 }
+
 .eds-mp-card--type-c {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: var(--gap-3xl);
 }
+
 .eds-mp-card--type-c .eds-mp-card__type--name {
   font-size: var(--font-size-01);
   margin: 0 0 var(--spacing-md) 0;
   color: var(--color-brand-700);
 }
+
 .eds-mp-card--type-c .eds-mp-card__type--address i {
   font-size: var(--font-size-01);
   width: var(--size-3xl);
   height: var(--size-3xl);
 }
+
 .eds-mp-card--type-c .eds-mp-card__type--location {
   margin: 0 0 var(--spacing-md) 0;
 }
+
 @media (width > 992px) {
   .eds-mp-card__principal-tag--share {
     width: var(--size-140);
   }
+
   .eds-mp-card__info {
-    -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: start;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
+
   .eds-mp-card__info--contact {
     width: auto;
   }
+
   .eds-mp-card__info--contact .eds-mp-card__type--center, .eds-mp-card__info--contact .eds-mp-card__type--address {
     margin: var(--spacing-xl) 0 var(--spacing-md) 0;
   }
+
   .eds-mp-card__info--contact .eds-mp-card__type--center + div, .eds-mp-card__info--contact .eds-mp-card__type--address + div {
     margin: 0 0 var(--spacing-md) 0;
   }
+
   .eds-mp-card__info--location {
     margin: var(--spacing-xl) 0 0 0;
   }
+
   .eds-mp-card__info--tags {
     width: var(--size-170);
     border-left: 1px solid var(--color-grey-400);
     padding: 0 0 0 var(--spacing-xl);
   }
+
   .eds-mp-card__info--buttons {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: end;
   }
+
   .eds-mp-card__info--buttons-detail {
     width: auto;
   }
+
   .eds-mp-card--type-b .eds-mp-card__block {
     width: calc(50% - 9.5rem);
   }
+
   .eds-mp-card--type-b .eds-mp-card__info--tags {
     border: none;
     width: auto;
     padding: 0;
   }
+
   .eds-mp-card--type-b .eds-mp-card__info--buttons {
-    -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     width: var(--size-254);
     gap: var(--gap-8);
-    -webkit-box-align: end;
         -ms-flex-align: end;
             align-items: end;
   }
+
   .eds-mp-card--type-b .eds-mp-card__info--buttons .button-cmp__text {
     min-width: var(--size-145);
   }
+
   .eds-mp-card--type-c .eds-mp-card__block {
     width: 100%;
   }
+
   .eds-mp-card--type-c .eds-mp-card__info--tags {
     border: none;
     width: auto;
     padding: 0;
   }
+
   .eds-mp-card--type-c .eds-mp-card__info--buttons {
-    -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     gap: var(--gap-8);
-    -webkit-box-align: end;
         -ms-flex-align: end;
             align-items: end;
   }
+
   .eds-mp-card--type-c .eds-mp-card__info--buttons .button-cmp__text {
     min-width: 6.563rem;
   }
 }
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+
+/* !******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/src/index.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./node_modules/glob-import-loader/index.js??ruleSet[1].rules[1].use[4]!./src/main/webpack/edslib/mp-doctor-center.scss ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************/
+  \ ******************************************************************************************************************************************************************************************************************************************************************************************************************/
+
 /* From animated.css */
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .eds-mp-doctor-center {
   padding: 0 0 var(--spacing-3xl) 0;
 }
+
 .eds-mp-doctor-center__title {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-700);
@@ -2394,56 +2640,67 @@ body .wasisa-max-width > div {
   margin: 0 0 var(--spacing-3xl) 0;
   color: var(--color-black-100);
 }
+
 .eds-mp-doctor-center__container {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: var(--gap-xl);
 }
+
 .eds-mp-doctor-center__container .eds-mp-card {
   width: 100%;
 }
+
 @media (width > 768px) {
   .eds-mp-doctor-center__container .eds-mp-card {
     width: calc(50% - 0.5rem);
   }
 }
+
 @media (width > 1280px) {
   .eds-mp-doctor-center {
     margin: 0 auto;
     max-width: var(--size-1168);
   }
 }
+
 @media (width > 1440px) {
   .eds-mp-doctor-center {
     max-width: var(--size-1380);
   }
 }
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+
+/* !********************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/src/index.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./node_modules/glob-import-loader/index.js??ruleSet[1].rules[1].use[4]!./src/main/webpack/edslib/mp-faq.scss ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************/
+  \ ********************************************************************************************************************************************************************************************************************************************************************************************************/
+
 /* From animated.css */
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .eds-mp-faq {
   padding: 0 0 var(--spacing-3xl) 0;
 }
+
 .eds-mp-faq__header--title {
   font-size: var(--font-size-xxs);
   font-weight: var(--font-weight-500);
@@ -2454,43 +2711,43 @@ body .wasisa-max-width > div {
   text-transform: uppercase;
   color: var(--color-cockatrice-700);
 }
+
 .eds-mp-faq__header--title-sub {
   margin: 0 0 var(--spacing-3xl) 0;
   text-align: left;
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+
 .eds-mp-faq__container {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
   gap: var(--gap-3xl);
 }
+
 .eds-mp-faq__item {
   background-color: var(--color-blue-200);
   padding: var(--spacing-xl);
   width: var(--size-100p);
 }
+
 .eds-mp-faq__item--title {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   color: var(--color-brand-100);
@@ -2498,17 +2755,19 @@ body .wasisa-max-width > div {
   font-weight: var(--font-weight-700);
   cursor: pointer;
 }
+
 .eds-mp-faq__item--title::marker {
   content: "";
 }
+
 .eds-mp-faq__item--title::after {
-  font-family: "asisa";
+  font-family: asisa;
   speak: never;
   font-style: normal;
-  font-weight: normal;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -2519,21 +2778,26 @@ body .wasisa-max-width > div {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-700);
 }
+
 .eds-mp-faq__item--text {
   padding: var(--spacing-xl) 0;
   letter-spacing: 0;
 }
+
 .eds-mp-faq__item[open] summary::after {
   content: var(--icon-minus-03);
 }
+
 @media (width > 992px) {
   .eds-mp-faq__container {
     gap: var(--gap-3xl) var(--gap-56);
   }
+
   .eds-mp-faq__item {
     width: calc(50% - 1.75rem);
   }
 }
+
 @media (width > 1280px) {
   .eds-mp-faq {
     padding: var(--spacing-4xl) 0;
@@ -2541,37 +2805,43 @@ body .wasisa-max-width > div {
     max-width: var(--size-1168);
   }
 }
+
 @media (width > 1440px) {
   .eds-mp-faq {
     max-width: var(--size-1380);
   }
 }
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+
+/* !*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/src/index.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./node_modules/glob-import-loader/index.js??ruleSet[1].rules[1].use[4]!./src/main/webpack/edslib/mp-notfound.scss ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************/
+  \ *************************************************************************************************************************************************************************************************************************************************************************************************************/
+
 /* From animated.css */
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .edp-mp-notfound {
   padding: 0 0 var(--spacing-3xl) 0;
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -2579,10 +2849,12 @@ body .wasisa-max-width > div {
   gap: var(--gap-3xl);
   text-align: center;
 }
+
 .edp-mp-notfound i {
   font-size: var(--font-size-80);
   width: 100%;
 }
+
 .edp-mp-notfound__title {
   font-weight: var(--font-weight-700);
   font-size: var(--font-size-xl-01);
@@ -2591,6 +2863,7 @@ body .wasisa-max-width > div {
   color: var(--color-brand-700);
   width: 100%;
 }
+
 .edp-mp-notfound__text {
   font-weight: var(--font-weight-400);
   font-size: var(--font-size-sm);
@@ -2599,32 +2872,39 @@ body .wasisa-max-width > div {
   letter-spacing: 0;
   width: 100%;
 }
+
 @media (width > 768px) {
   .edp-mp-notfound {
     width: 50%;
     margin: 0 auto var(--spacing-3xl) auto;
   }
 }
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+
+/* !*********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/src/index.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./node_modules/glob-import-loader/index.js??ruleSet[1].rules[1].use[4]!./src/main/webpack/edslib/mp-other-localities.scss ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************************/
+  \ *********************************************************************************************************************************************************************************************************************************************************************************************************************/
+
 /* From animated.css */
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .eds-mp-other-localities-title {
   font-size: var(--font-size-01);
   font-weight: var(--font-weight-500);
@@ -2633,27 +2913,28 @@ body .wasisa-max-width > div {
   margin: 0 0 var(--spacing-3xl) 0;
   color: var(--color-brand-100);
 }
+
 .eds-mp-other-localities-list {
   margin: 0 0 var(--spacing-4xl) 0;
 }
+
 .eds-mp-other-localities-container {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: var(--gap-8);
   margin: 0;
   padding: 0 0 var(--spacing-4xl) 0;
 }
+
 .eds-mp-other-localities-item {
   border: 1px solid var(--color-blue-400);
   padding: var(--spacing-md);
   background: var(--color-white);
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   gap: var(--gap-8);
@@ -2662,81 +2943,96 @@ body .wasisa-max-width > div {
           justify-content: space-between;
   width: calc(50% - 0.5rem);
 }
+
 .eds-mp-other-localities-block--locate, .eds-mp-other-localities-block--professional {
   font-weight: var(--font-weight-700);
   font-size: var(--font-size-base);
   line-height: var(--line-height-140p);
   letter-spacing: 0;
 }
+
 .eds-mp-other-localities-block--locate {
   color: var(--color-brand-700);
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.5rem;
 }
+
 .eds-mp-other-localities-block--professional {
   font-weight: var(--font-weight-400);
   color: var(--color-grey-700);
 }
+
 .eds-mp-other-localities-link {
   width: 2rem;
   height: 2rem;
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
+
 .eds-mp-other-localities-link a {
   text-decoration: none;
   display: block;
 }
+
 .eds-mp-other-localities-link i {
   font-size: var(--font-size-01);
 }
+
 @media (width > 768px) {
   .eds-mp-other-localities-container {
     gap: var(--gap-xl);
   }
+
   .eds-mp-other-localities-item {
     gap: var(--gap-xl);
     width: calc(19% - 0.5rem);
     padding: var(--spacing-md) var(--spacing-xl);
   }
 }
+
 @media (width > 1280px) {
   .eds-mp-other-localities {
     margin: 0 auto;
     max-width: var(--size-1168);
   }
 }
+
 @media (width > 1440px) {
   .eds-mp-other-localities {
     max-width: var(--size-1380);
   }
 }
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+
+/* !****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/src/index.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./node_modules/glob-import-loader/index.js??ruleSet[1].rules[1].use[4]!./src/main/webpack/edslib/mp-other-specs.scss ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************************/
+  \ ****************************************************************************************************************************************************************************************************************************************************************************************************************/
+
 /* From animated.css */
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .eds-mp-other-specs__title {
   font-size: var(--font-size-01);
   font-weight: var(--font-weight-500);
@@ -2745,71 +3041,84 @@ body .wasisa-max-width > div {
   margin: 0 0 var(--spacing-3xl) 0;
   color: var(--color-brand-100);
 }
+
 .eds-mp-other-specs__container {
   margin: 0;
   padding: 0;
   padding: 0 0 var(--spacing-4xl) 0;
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: var(--gap-3xl);
 }
+
 .eds-mp-other-specs__container .cmp-tag-template {
   display: inline-block;
   text-decoration: none;
 }
+
 .eds-mp-other-specs__container .cmp-tag-template__text {
   margin: 0;
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-400);
   color: var(--color-black-100);
 }
+
 .eds-mp-other-specs__container .cmp-tag-template--blue-100 {
   border: 1px solid var(--color-blue-400);
 }
+
 .eds-mp-other-specs__container .cmp-tag-template--blue-100.active, .eds-mp-other-specs__container .cmp-tag-template--blue-100:hover {
   background: var(--color-blue-100);
 }
+
 .eds-mp-other-specs__container .cmp-tag-template--blue-100.active .cmp-tag-template__text, .eds-mp-other-specs__container .cmp-tag-template--blue-100:hover .cmp-tag-template__text {
   color: var(--color-brand-100);
 }
+
 @media (width > 1280px) {
   .eds-mp-other-specs {
     margin: 0 auto;
     max-width: var(--size-1168);
   }
 }
+
 @media (width > 1440px) {
   .eds-mp-other-specs {
     max-width: var(--size-1380);
   }
 }
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+
+/* !***************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/src/index.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./node_modules/glob-import-loader/index.js??ruleSet[1].rules[1].use[4]!./src/main/webpack/edslib/mp-pagination.scss ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************/
+  \ ***************************************************************************************************************************************************************************************************************************************************************************************************************/
+
 /* From animated.css */
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .eds-mp-pagination {
   overflow: hidden;
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
   max-width: 100%;
   margin: 0 auto;
@@ -2819,11 +3128,11 @@ body .wasisa-max-width > div {
   padding: 0;
   gap: 0 var(--gap-8);
 }
+
 .eds-mp-pagination li {
   cursor: pointer;
   margin: 0;
   display: inline-block;
-  text-align: center;
   list-style: none;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -2837,16 +3146,15 @@ body .wasisa-max-width > div {
   color: var(--color-brand-100);
   border-radius: var(--b-radius-4);
 }
+
 .eds-mp-pagination li:nth-child(1), .eds-mp-pagination li:nth-last-child(1) {
   font-size: 0;
   position: relative;
   width: var(--size-32);
   height: var(--size-32);
-  padding: 0;
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
@@ -2856,14 +3164,16 @@ body .wasisa-max-width > div {
   gap: 0;
   overflow: hidden;
 }
+
 .eds-mp-pagination li:nth-child(1)::before, .eds-mp-pagination li:nth-last-child(1)::before {
-  font-family: "asisa";
+  font-family: asisa;
   speak: never;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -2875,63 +3185,72 @@ body .wasisa-max-width > div {
   border-radius: initial;
   color: var(--color-brand-100);
 }
+
 .eds-mp-pagination li:nth-child(1)::before {
   content: var(--icon-chevron-left);
 }
+
 .eds-mp-pagination li:nth-last-child(1)::before {
   content: var(--icon-chevron-right);
 }
+
 .eds-mp-pagination li.disabled {
   color: var(--color-grey-500);
   background: none;
   cursor: default;
   pointer-events: none;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
+
 .eds-mp-pagination li.disabled::before {
   color: var(--color-grey-500);
 }
+
 .eds-mp-pagination li.active, .eds-mp-pagination li:hover {
   background: var(--color-blue-100);
 }
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+
+/* !****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/src/index.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./node_modules/glob-import-loader/index.js??ruleSet[1].rules[1].use[4]!./src/main/webpack/edslib/mp-spec-center.scss ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************************/
+  \ ****************************************************************************************************************************************************************************************************************************************************************************************************************/
+
 /* From animated.css */
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .eds-mp-spec-center {
   width: 100%;
   border-radius: var(--b-radius-2);
   padding: var(--spacing-3xl);
   border: 1px solid var(--color-blue-400);
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: var(--gap-3xl);
 }
+
 .eds-mp-spec-center__header {
   width: 100%;
 }
+
 .eds-mp-spec-center__header--title {
   font-weight: var(--font-weight-700);
   font-size: var(--font-size);
@@ -2940,29 +3259,32 @@ body .wasisa-max-width > div {
   color: var(--color-brand-700);
   margin: 0 0 var(--spacing-xl) 0;
 }
+
 .eds-mp-spec-center__header--actions {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: var(--gap-8);
 }
+
 .eds-mp-spec-center__header--actions .button-cmp {
   width: 100%;
 }
+
 .eds-mp-spec-center__header--actions .button-cmp__text {
   width: 100%;
   letter-spacing: var(--letter-spacing-2);
 }
+
 .eds-mp-spec-center__details {
   width: 100%;
 }
+
 .eds-mp-spec-center__details--toggle {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   font-weight: var(--font-weight-500);
@@ -2973,17 +3295,20 @@ body .wasisa-max-width > div {
   gap: var(--gap-xl);
   position: relative;
 }
+
 .eds-mp-spec-center__details--toggle::marker {
   content: "";
 }
+
 .eds-mp-spec-center__details--toggle::after {
-  font-family: "asisa";
+  font-family: asisa;
   speak: never;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -2991,29 +3316,29 @@ body .wasisa-max-width > div {
   color: var(--color-brand-100);
   content: var(--icon-chevron-down);
 }
+
 .eds-mp-spec-center__details[open] summary::after {
   content: var(--icon-chevron-up);
 }
+
 .eds-mp-spec-center__details--container {
   padding: var(--spacing-xl) 0;
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: var(--gap-3xl);
   width: 100%;
 }
+
 .eds-mp-spec-center__details--block-title {
   width: var(--size-100p);
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   gap: var(--gap-xl);
-  font-weight: var(--font-weight-700);
   font-size: var(--font-size-base);
   line-height: var(--line-height-140p);
   letter-spacing: 0;
@@ -3021,13 +3346,16 @@ body .wasisa-max-width > div {
   font-weight: var(--font-weight-400);
   color: var(--color-grey-700);
 }
+
 .eds-mp-spec-center__details--block-title i::before {
   color: var(--color-grey-700);
 }
+
 .eds-mp-spec-center__details--block-list {
   margin: 0;
   padding: 0 0 0 var(--spacing-xl);
 }
+
 .eds-mp-spec-center__details--block-item {
   list-style: disc;
   font-size: var(--font-size-xs);
@@ -3035,51 +3363,61 @@ body .wasisa-max-width > div {
   color: var(--color-grey-700);
   margin: 0 0 var(--spacing-md) 0;
 }
+
 .eds-mp-spec-center__details--block-item::marker {
   color: var(--color-grey-700);
 }
+
 .eds-mp-spec-center__details--block-item:last-child {
   margin: 0;
 }
+
 .eds-mp-spec-center__details--block-item ul {
   margin: 0;
   padding: var(--spacing-md) 0 0 var(--spacing-xl);
 }
+
 .eds-mp-spec-center__details--block-item ul li {
   list-style: disc;
   font-size: var(--font-size-xs);
   margin: 0 0 var(--spacing-md) 0;
 }
+
 .eds-mp-spec-center__details--block-item ul li::marker {
   color: var(--color-grey-700);
 }
+
 .eds-mp-spec-center__details--block-item ul li:last-child {
   margin: 0;
 }
+
 .eds-mp-spec-center__details--block-item a {
   text-decoration: none;
   color: var(--color-grey-700);
 }
+
 .eds-mp-spec-center__details--block p {
   font-size: var(--font-size-xs);
   line-height: var(--line-height-140p);
   color: var(--color-grey-700);
 }
+
 @media (width > 992px) {
   .eds-mp-spec-center__header {
     display: -webkit-box;
-    display: -ms-flexbox;
+    display: flexbox;
     display: flex;
-    -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
+
   .eds-mp-spec-center__header--title {
     margin: 0;
   }
+
   .eds-mp-spec-center__header--actions {
     width: 50%;
     -webkit-box-pack: end;
@@ -3087,40 +3425,50 @@ body .wasisa-max-width > div {
             justify-content: end;
     gap: var(--gap-3xl);
   }
+
   .eds-mp-spec-center__header--actions .button-cmp {
     width: auto;
     min-width: var(--size-140);
   }
+
   .eds-mp-spec-center__details--container {
     width: 100%;
   }
+
   .eds-mp-spec-center__details--block {
     width: 32%;
   }
 }
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+
+/* !*********************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/src/index.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./node_modules/glob-import-loader/index.js??ruleSet[1].rules[1].use[4]!./src/main/webpack/edslib/mp-spec.scss ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************/
+  \ *********************************************************************************************************************************************************************************************************************************************************************************************************/
+
 /* From animated.css */
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .eds-mp-spec {
   padding: 0 0 var(--spacing-4xl) 0;
 }
+
 .eds-mp-spec-title {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-700);
@@ -3129,17 +3477,18 @@ body .wasisa-max-width > div {
   margin: 0 0 var(--spacing-3xl) 0;
   color: var(--color-black-100);
 }
+
 .eds-mp-spec-list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: var(--gap-8);
 }
+
 .eds-mp-spec-item {
   border: 1px solid var(--color-blue-400);
   background: var(--color-white);
@@ -3148,6 +3497,7 @@ body .wasisa-max-width > div {
   text-align: center;
   width: calc(50% - 0.5rem);
 }
+
 .eds-mp-spec-item i {
   font-size: var(--font-size-01);
   display: inline-block;
@@ -3155,6 +3505,7 @@ body .wasisa-max-width > div {
   width: 1.5rem;
   margin: 0 0 var(--spacing-lg) 0;
 }
+
 .eds-mp-spec-item p {
   font-size: var(--font-size-base);
   line-height: var(--line-height-140p);
@@ -3163,67 +3514,80 @@ body .wasisa-max-width > div {
   width: 100%;
   margin: 0 0 var(--spacing-xs) 0;
 }
+
 .eds-mp-spec-item p a {
   display: block;
   font-weight: var(--font-weight-700);
   text-decoration: none;
 }
+
 .eds-mp-spec-item--name {
   font-weight: var(--font-weight-700);
   color: var(--color-brand-700);
 }
+
 .eds-mp-spec-item--spec {
   font-weight: var(--font-weight-400);
   color: var(--color-grey-700);
 }
+
 @media (width > 768px) {
   .eds-mp-spec-list {
     gap: var(--gap-xl);
   }
+
   .eds-mp-spec-item {
     padding: var(--spacing-xl);
     width: calc(25% - 0.75rem);
   }
 }
+
 @media (width > 1280px) {
   .eds-mp-spec {
     margin: 0 auto;
     max-width: var(--size-1168);
   }
 }
+
 @media (width > 1440px) {
   .eds-mp-spec {
     max-width: var(--size-1380);
   }
 }
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+
+/* !*********************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/src/index.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./node_modules/glob-import-loader/index.js??ruleSet[1].rules[1].use[4]!./src/main/webpack/edslib/mp-tabs.scss ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************/
+  \ *********************************************************************************************************************************************************************************************************************************************************************************************************/
+
 /* From animated.css */
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .eds-mp-tabs {
   padding: 0 0 var(--spacing-3xl) 0;
 }
+
 .eds-mp-tabs__nav {
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: initial;
       flex-wrap: initial;
   list-style: none;
   padding: var(--spacing-xs) 0 var(--spacing-md) 0;
@@ -3238,13 +3602,13 @@ body .wasisa-max-width > div {
   scrollbar-width: thin;
   scrollbar-color: var(--color-neutral-00) var(--color-neutral-00);
 }
+
 .eds-mp-tabs__nav--item {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-700);
   padding: var(--spacing-xm) 0;
   border-radius: var(--b-radius-2);
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 auto;
+  flex-grow: 1;
           flex: 1 0 auto;
   text-align: center;
   color: var(--color-brand-100);
@@ -3254,44 +3618,47 @@ body .wasisa-max-width > div {
   cursor: pointer;
   min-width: 30%;
 }
+
 .eds-mp-tabs__nav--item--active, .eds-mp-tabs__nav--item.active, .eds-mp-tabs__nav--item:hover {
   font-weight: var(--font-weight-700);
   opacity: 1;
   color: var(--color-white);
   background: var(--color-brand-100);
 }
+
 .eds-mp-tabs__container {
   padding: var(--spacing-3xl) 0 0 0;
 }
+
 .eds-mp-tabs__content {
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
   gap: var(--gap-3xl);
 }
+
 .eds-mp-tabs__content .eds-mp-card,
 .eds-mp-tabs__content .eds-mp-pagination {
   width: 100%;
 }
+
 .eds-mp-tabs__loading {
   margin: auto;
   width: 3rem;
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
   gap: var(--gap-xl);
   min-height: 6rem;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
+
 .eds-mp-tabs__loading p {
   font-weight: var(--font-weight-700);
   font-size: var(--font-size-xl-01);
@@ -3302,57 +3669,66 @@ body .wasisa-max-width > div {
   padding: var(--spacing-xl) 0;
   color: var(--color-brand-700);
 }
+
 @media (width > 768px) {
   .eds-mp-tabs__nav {
     top: initial;
     gap: 0 var(--gap-32);
   }
+
   .eds-mp-tabs__nav--item {
     padding: var(--spacing-lg-01) var(--spacing-xl);
     font-size: var(--font-size-sm);
     line-height: var(--line-height-30);
     min-width: var(--size-170);
-    max-width: -webkit-fit-content;
-    max-width: -moz-fit-content;
     max-width: fit-content;
   }
 }
+
 @media (width > 992px) {
   .eds-mp-tabs__content .eds-mp-card {
     width: calc(50% - 0.75rem);
   }
 }
+
 @media (width > 1280px) {
   .eds-mp-tabs {
     margin: 0 auto;
     max-width: var(--size-1168);
   }
 }
+
 @media (width > 1440px) {
   .eds-mp-tabs {
     max-width: var(--size-1380);
   }
 }
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+
+/* !*********************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/src/index.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./node_modules/glob-import-loader/index.js??ruleSet[1].rules[1].use[4]!./src/main/webpack/edslib/mp-user.scss ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************/
+  \ *********************************************************************************************************************************************************************************************************************************************************************************************************/
+
 /* From animated.css */
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .eds-mp-user__subtitle {
   font-weight: var(--font-weight-700);
   font-size: var(--font-size-sm);
@@ -3361,49 +3737,58 @@ body .wasisa-max-width > div {
   margin: 0 0 var(--spacing-3xl) 0;
   color: var(--color-black-100);
 }
+
 .eds-mp-user__content {
   margin: 0 0 var(--spacing-3xl) 0;
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: var(--gap-3xl);
 }
+
 .eds-mp-user__content .eds-mp-card {
   width: 100%;
 }
+
 @media (width > 1280px) {
   .eds-mp-user {
     margin: 0 auto;
     max-width: var(--size-1168);
   }
 }
+
 @media (width > 1440px) {
   .eds-mp-user {
     max-width: var(--size-1380);
   }
 }
-/*!************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+
+/* !************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/src/index.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./node_modules/glob-import-loader/index.js??ruleSet[1].rules[1].use[4]!./src/main/webpack/edslib/mp-wrapper.scss ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************************************/
+  \ ************************************************************************************************************************************************************************************************************************************************************************************************************/
+
 /* From animated.css */
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .cuadro-medico-other-localidades-wrapper--blue {
   padding-top: var(--spacing-3xl);
   padding-bottom: var(--spacing-4xl);
