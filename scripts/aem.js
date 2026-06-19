@@ -589,7 +589,7 @@ async function loadBlock(block) {
             }
           } catch (error) {
             // eslint-disable-next-line no-console
-            console.error(`failed to load module for ${blockName}`, error);
+            //console.error(`failed to load module for ${blockName}`, error);
           }
           resolve();
         })();
@@ -597,7 +597,7 @@ async function loadBlock(block) {
       await Promise.all([cssLoaded, decorationComplete]);
     } catch (error) {
       // eslint-disable-next-line no-console
-      console.error(`failed to load block ${blockName}`, error);
+      //console.error(`failed to load block ${blockName}`, error);
     }
     block.dataset.blockStatus = 'loaded';
   }
