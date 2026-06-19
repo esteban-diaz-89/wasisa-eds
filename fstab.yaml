@@ -1,5 +1,5 @@
 mountpoints:
   /:
-    url: "https://author-p133185-e1320482.adobeaemcloud.com/bin/franklin.delivery/esteban-diaz-89/wasisa-eds/main"
+    url: "https://author-p133185-e1320482.adobeaemcloud.com/bin/franklin.delivery/asisa-softtek/asisa-pc/main"
     type: "markup"
     suffix: ".html"
