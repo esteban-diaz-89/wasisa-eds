@@ -13,7 +13,7 @@
  *   - .cmp-tag-template--blank                → chip
  */
 
-const API_BASE = 'https://asisa-pc.vercel.app';
+const API_BASE = 'http://localhost:3000';
 
 function getKeyFromUrl() {
   const parts = window.location.pathname.split('/');
