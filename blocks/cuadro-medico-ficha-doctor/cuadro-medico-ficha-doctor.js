@@ -11,7 +11,7 @@
  * UI con clases del design system ASISA (clientlib-site.min.css).
  */
 
-const API_BASE = 'http://localhost:3000';
+const API_BASE = 'https://unclothed-straining-chastity.ngrok-free.dev';
 const ASISA_SEARCH = 'https://www.asisa.es/asegurado/salud/cuadro-medico/resultados-cuadro-medico';
 const ASISA_SEARCH_PUBLIC = 'https://www.asisa.es/cuadro-medico/resultados-cuadro-medico';
 
