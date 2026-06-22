@@ -15,9 +15,9 @@
  * No añade CSS propio.
  */
 
-const API_BASE = 'https://unclothed-straining-chastity.ngrok-free.dev';
+const API_BASE = 'http://localhost:3000';
 const ASISA_SEARCH_PRIVATE = 'https://www.asisa.es/asegurado/salud/cuadro-medico/resultados-cuadro-medico';
-const PAGE_SIZE = 10;
+const PAGE_SIZE = 30;
 
 function getSlugsFromUrl() {
   const parts = window.location.pathname.split('/');
