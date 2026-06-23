@@ -26,7 +26,7 @@ export default function decorate(block) {
   const hasSsr = block.children.length > 0;
   if (!hasSsr) block.innerHTML = '<div class="loading"><div class="spinner"></div> <p>Cargando provincias…</p></div>';
 
-  fetch(`http://localhost/api/especialidades?slug=${specSlug}`)
+  fetch(`http://localhost:3000/api/especialidades?slug=${specSlug}`)
     .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then((data) => {
       const provincias = (data.provincias || []).filter((p) => p.slug !== provSlug);
