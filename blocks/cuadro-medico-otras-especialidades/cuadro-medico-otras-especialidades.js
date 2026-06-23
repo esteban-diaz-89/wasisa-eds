@@ -10,7 +10,7 @@
  *   - .cmp-tag-template--blank / --blue       → chip
  */
 
-const API_BASE = 'https://unclothed-straining-chastity.ngrok-free.dev';
+const API_BASE = 'http://localhost:3000';
 
 function getSlugsFromUrl() {
   const parts = window.location.pathname.split('/');
