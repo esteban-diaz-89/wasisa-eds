@@ -15,7 +15,7 @@
  * No añade CSS propio.
  */
 
-const API_BASE = 'http://unclothed-straining-chastity.ngrok-free.dev';
+const API_BASE = 'https://unclothed-straining-chastity.ngrok-free.dev';
 const ASISA_SEARCH_PRIVATE = 'https://www.asisa.es/asegurado/salud/cuadro-medico/resultados-cuadro-medico';
 const PAGE_SIZE = 30;
 
