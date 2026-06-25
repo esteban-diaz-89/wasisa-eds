@@ -622,16 +622,14 @@ function decorateBlock(block) {
     if (section) section.classList.add(`${shortBlockName}-container`);
     // eslint-disable-next-line no-use-before-define
     decorateButtons(block);
-    decorateFooter(block);
+    if (shortBlockName === 'footer') {
+        block.dataset.component = 'cmp-medical-picture-footer-react';
+    } else if (shortBlockName === 'header') {
+        block.dataset.component = 'cmp-medical-picture-header-react';
+    }
   }
 }
 
-function decorateFooter(element) {
-    if (element.dataset.blockName === 'footer') {
-        console.log('Decorating footer');
-        element.dataset.component = 'cmp-medical-picture-footer-react';
-    }
-}
 
 /**
  * Decorates all blocks in a container element.

@@ -180,6 +180,8 @@ function renderShell(state) {
       </section>`
     : '';
 
+  const searcher = `<div data-component="cmp-medical-picture-search-react"></div>`;
+
   const tabs = `
 
   <div class="eds-mp-tabs">
@@ -196,7 +198,7 @@ function renderShell(state) {
 
   `;
 
-  return `${intro}${tabs}`;
+  return `${intro}${searcher}${tabs}`;
 }
 
 async function fetchPage(provSlug, specSlug, tab, page) {
