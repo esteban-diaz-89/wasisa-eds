@@ -15,9 +15,6 @@
  * No añade CSS propio.
  */
 
- /*
-
-
 const API_BASE = 'http://localhost:3000';
 const ASISA_SEARCH_PRIVATE = 'https://www.asisa.es/asegurado/salud/cuadro-medico/resultados-cuadro-medico';
 const PAGE_SIZE = 30;
@@ -319,4 +316,3 @@ async function decorate(block) {
 }
 
 export default decorate;
-*/
