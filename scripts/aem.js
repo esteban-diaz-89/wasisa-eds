@@ -622,7 +622,15 @@ function decorateBlock(block) {
     if (section) section.classList.add(`${shortBlockName}-container`);
     // eslint-disable-next-line no-use-before-define
     decorateButtons(block);
+    decorateFooter(block);
   }
+}
+
+function decorateFooter(element) {
+    if (element.dataset.blockName === 'footer') {
+        console.log('Decorating footer');
+        element.dataset.component = 'cmp-medical-picture-footer-react';
+    }
 }
 
 /**
