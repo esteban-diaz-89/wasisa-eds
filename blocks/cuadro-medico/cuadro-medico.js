@@ -15,6 +15,9 @@
  * No añade CSS propio.
  */
 
+ /*
+
+
 const API_BASE = 'http://localhost:3000';
 const ASISA_SEARCH_PRIVATE = 'https://www.asisa.es/asegurado/salud/cuadro-medico/resultados-cuadro-medico';
 const PAGE_SIZE = 30;
@@ -96,7 +99,7 @@ function renderCard(p, isProfessional, provinceCode, locationName) {
           </div>
             ${p.businessGroup ? '<div class="cmp-tag-template cmp-tag-template--blank"><div class="cmp-tag-template__text">Centro de ASISA</div></div>' : ''}
             ${p.ePrescription ? '<div class="cmp-tag-template cmp-tag-template--blank"><div class="cmp-tag-template__text">Receta electrónica</div></div>' : ''}
-           
+
 
         </div>
          <div class="eds-mp-card__info">
@@ -117,7 +120,7 @@ function renderCard(p, isProfessional, provinceCode, locationName) {
               </div>
          </div>
            <div class="eds-mp-card__info--buttons">
-             
+
               <div class="eds-mp-card__info--buttons-detail">
                 ${p.onlineAppointment ? `<div class="button-cmp"><a href="${citaUrl}" target="_blank" rel="noopener" class="button-cmp__text button-cmp__text--tertiary">Pedir cita</a></div>` : ''}
               </div>
@@ -181,7 +184,7 @@ function renderShell(state) {
     : '';
 
   const tabs = `
-  
+
   <div class="eds-mp-tabs">
     <ul class="eds-mp-tabs__nav">
       <li class=" eds-mp-tabs__nav--item ${tab === 'professionals' ? 'active' : ''}" name="professionals" data-tab="professionals">Profesionales (${totalProfessionals})</li>
@@ -191,9 +194,9 @@ function renderShell(state) {
       ${loading
     ? '<div class="eds-mp-tabs__loading"><div class="spinner"></div><p>Cargando…</p></div>'
     : `<div class="eds-mp-tabs__content">${results.map((p) => renderCard(p, tab === 'professionals', provinceCode, locationName)).join('')}  ${renderPagination(page, totalPages)}</div>`}
-    </div> 
+    </div>
   </div>
-  
+
   `;
 
   return `${intro}${tabs}`;
@@ -316,3 +319,4 @@ async function decorate(block) {
 }
 
 export default decorate;
+*/
