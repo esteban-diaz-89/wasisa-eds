@@ -50,34 +50,35 @@ function renderNationalChips(specs, specSlug) {
 }
 
 export default function decorate(block) {
-  const { provSlug, specSlug } = getSlugsFromUrl();
-  if (!provSlug && !specSlug) { block.hidden = true; return; }
-
-  // Si el overlay ya pintó contenido (SSR), no mostramos el spinner — esperamos
-  // en silencio al fetch para reemplazar con la versión completa.
-  const hasSsr = block.children.length > 0;
-  if (!hasSsr) block.innerHTML = '<p>Cargando especialidades…</p>';
-
-  if (provSlug) {
-    Promise.all([
-      fetch(`${API_BASE}/api/provincias?slug=${provSlug}`).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }),
-      fetch(`${API_BASE}/api/especialidades`).then((r) => r.json()),
-    ])
-      .then(([provincia, allEspec]) => {
-        const provSpecs = new Set(provincia.especialidades || []);
-        const specs = allEspec.filter((e) => provSpecs.has(e.slug));
-        if (!specs.length) { block.hidden = true; return; }
-        block.innerHTML = renderProvincialChips(provincia, specs, provSlug);
-      })
-      .catch(() => { if (!hasSsr) block.innerHTML = ''; });
-  } else {
-    fetch(`${API_BASE}/api/especialidades`)
-      .then((r) => r.json())
-      .then((allEspec) => {
-        const specs = (allEspec || []).filter((e) => e.kind !== 'service');
-        if (!specs.length) { block.hidden = true; return; }
-        block.innerHTML = renderNationalChips(specs, specSlug);
-      })
-      .catch(() => { if (!hasSsr) block.innerHTML = ''; });
-  }
+//  const { provSlug, specSlug } = getSlugsFromUrl();
+//  if (!provSlug && !specSlug) { block.hidden = true; return; }
+//
+//  // Si el overlay ya pintó contenido (SSR), no mostramos el spinner — esperamos
+//  // en silencio al fetch para reemplazar con la versión completa.
+//  const hasSsr = block.children.length > 0;
+//  if (!hasSsr) block.innerHTML = '<p>Cargando especialidades…</p>';
+//
+//  if (provSlug) {
+//    Promise.all([
+//      fetch(`${API_BASE}/api/provincias?slug=${provSlug}`).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }),
+//      fetch(`${API_BASE}/api/especialidades`).then((r) => r.json()),
+//    ])
+//      .then(([provincia, allEspec]) => {
+//        const provSpecs = new Set(provincia.especialidades || []);
+//        const specs = allEspec.filter((e) => provSpecs.has(e.slug));
+//        if (!specs.length) { block.hidden = true; return; }
+//        block.innerHTML = renderProvincialChips(provincia, specs, provSlug);
+//      })
+//      .catch(() => { if (!hasSsr) block.innerHTML = ''; });
+//  } else {
+//    fetch(`${API_BASE}/api/especialidades`)
+//      .then((r) => r.json())
+//      .then((allEspec) => {
+//        const specs = (allEspec || []).filter((e) => e.kind !== 'service');
+//        if (!specs.length) { block.hidden = true; return; }
+//        block.innerHTML = renderNationalChips(specs, specSlug);
+//      })
+//      .catch(() => { if (!hasSsr) block.innerHTML = ''; });
+//  }
+    console.log('decorate cuadro-medico-otras-especialidades');
 }
