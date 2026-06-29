@@ -1,247 +1,268 @@
-/**
- * Bloque "cuadro-medico-ficha-doctor".
- *
- * Ficha completa del médico. Lee la URL:  /cuadro-medico/d/{key}
- *
- * Un médico (agrupado por colegiado) puede ejercer en varios centros.
- * Renderiza:
- *   - Header con nombre, colegiado y especialidades únicas.
- *   - Una card por cada ubicación con su dirección, servicios, teléfono y CTA "Pedir cita".
- *
- * UI con clases del design system ASISA (clientlib-site.min.css).
- */
+const TAG_MAP = {
+  'tag:professional': { text: 'MÉDICO / PROFESIONAL', cls: 'cmp-tag-template--blue' },
+  'tag:center':       { text: 'CENTRO MÉDICO',        cls: 'cmp-tag-template--blue' },
+  'tag:asisa-center': { text: 'Centro de ASISA',      cls: 'cmp-tag-template--blank' },
+  'tag:eprescription':      { text: 'Receta electrónica', cls: 'cmp-tag-template--blank' },
+  'tag:online-appointment': { text: 'Cita online',        cls: 'cmp-tag-template--blank' },
+  'tag:video-consultation': { text: 'Videoconsulta',      cls: 'cmp-tag-template--blank' },
+};
 
-const API_BASE = 'http://localhost:3000';
-const ASISA_SEARCH = 'https://www.asisa.es/asegurado/salud/cuadro-medico/resultados-cuadro-medico';
-const ASISA_SEARCH_PUBLIC = 'https://www.asisa.es/cuadro-medico/resultados-cuadro-medico';
-
-function getKeyFromUrl() {
-  const parts = window.location.pathname.split('/');
-  const dIdx = parts.indexOf('d');
-  return dIdx !== -1 ? parts[dIdx + 1] : null;
+function buildTag({ text, cls }) {
+  const div = document.createElement('div');
+  div.className = `cmp-tag-template ${cls}`;
+  div.innerHTML = `<div class="cmp-tag-template__text">${text}</div>`;
+  return div;
 }
 
-function formatName(raw) {
-  if (!raw) return '';
-  return raw.toLowerCase().split(/(\s+)/).map((w) => (w && /\S/.test(w) ? w.charAt(0).toUpperCase() + w.slice(1) : w)).join('');
-}
-
-function formatPersonName(raw) {
-  if (!raw) return '';
-  const [last = '', first = ''] = raw.split(',').map((s) => s.trim());
-  const ordered = first ? `${first} ${last}` : last;
-  const formatted = formatName(ordered);
-  const given = formatted.split(/\s+/)[0] || '';
-  const prefix = /a$/i.test(given) ? 'Dra.' : 'Dr.';
-  return `${prefix} ${formatted}`;
-}
-
-function buildShareUrl(d, loc, provinciaDisplayName) {
-  const params = new URLSearchParams({
-    networkId: '1',
-    networkName: 'Salud',
-    ordination: 'Relevance',
-    ordinationName: 'Relevancia',
-    address: `${provinciaDisplayName || loc.city || ''}, España`,
-    provinceId: loc.provinceCode || '',
-    speciality: loc.speciality || d.specialities?.[0] || '',
-    specialityName: loc.speciality || d.specialities?.[0] || '',
-    specialityType: '1',
+function buildBreadcrumb(ol) {
+  const nav = document.createElement('nav');
+  nav.className = 'cmp-breadcrumb';
+  nav.setAttribute('aria-label', 'Breadcrumb');
+  const newOl = document.createElement('ol');
+  newOl.className = 'cmp-breadcrumb__list';
+  [...ol.querySelectorAll('li')].forEach((li, i, arr) => {
+    const isLast = i === arr.length - 1;
+    const a = li.querySelector('a');
+    const newLi = document.createElement('li');
+    newLi.className = `cmp-breadcrumb__item${isLast ? ' cmp-breadcrumb__item--active' : ''}`;
+    if (isLast) {
+      newLi.textContent = a?.textContent || li.textContent;
+    } else if (a) {
+      a.className = 'cmp-breadcrumb__item-link';
+      newLi.appendChild(a);
+    }
+    newOl.appendChild(newLi);
   });
-  if (loc.lat && loc.lon) { params.set('latitude', loc.lat); params.set('longitude', loc.lon); }
-  return `${ASISA_SEARCH_PUBLIC}?${params}`;
+  nav.appendChild(newOl);
+  return nav;
 }
 
-function buildCitaUrl(d, loc, provinciaDisplayName) {
-  const params = new URLSearchParams({
-    networkId: '1',
-    networkName: 'Salud',
-    ordination: 'Relevance',
-    ordinationName: 'Relevancia',
-    address: `${provinciaDisplayName || loc.city || ''}, España`,
-    provinceId: loc.provinceCode || '',
-    speciality: loc.speciality || '',
-    specialityName: loc.speciality || '',
-    specialityType: '1',
-    fromPublicArea: 'true',
-    concept: d.name,
+function buildLocationCard(row, isFirst) {
+  // Leer datos de la fila — cada elemento tiene un rol claro por posición/tipo
+  const ul = row.querySelector('ul');
+  const tagKeys = ul ? [...ul.querySelectorAll('li')].map((li) => li.textContent.trim()) : [];
+
+  const ps = [...row.querySelectorAll('p')];
+  // El primer p sin link es la especialidad
+  const specP = ps.find((p) => !p.querySelector('a'));
+  const spec = specP?.textContent.trim() || '';
+
+  const h2 = row.querySelector('h2'); // nombre del médico (solo primera ubicación)
+  const h3 = row.querySelector('h3'); // número colegiado (solo primera ubicación)
+
+  const centerA = row.querySelector('a[href^="/cuadro-medico/c/"]');
+  const addressP = ps.find((p) => !p.querySelector('a') && p !== specP);
+  const mapsA = row.querySelector('a[href*="google.com/maps"]');
+  const phoneA = row.querySelector('a[href^="tel:"]');
+  const shareA = row.querySelector('a[title="Compartir"]');
+  const citaA = row.querySelector('a[title^="Pedir cita"]');
+
+  // --- Tags ---
+  const tagsDiv = document.createElement('div');
+  tagsDiv.className = 'cmp-medical-detail__title-block__tags';
+  tagKeys.forEach((key) => {
+    const meta = TAG_MAP[key];
+    if (meta) tagsDiv.appendChild(buildTag(meta));
   });
-  if (loc.lat && loc.lon) { params.set('latitude', loc.lat); params.set('longitude', loc.lon); }
-  return `${ASISA_SEARCH}?${params}`;
-}
+  if (shareA) {
+    shareA.className = 'eds-mp-card__principal-tag--share';
+    shareA.target = '_blank';
+    shareA.rel = 'noopener';
+    shareA.innerHTML = `Compartir <i class="icon-share-021"></i>`;
+    tagsDiv.appendChild(shareA);
+  }
 
-function renderServiceTags(loc) {
-  const tags = [];
-  if (loc.onlineAppointment) tags.push('<div class="cmp-tag-template cmp-tag-template--blank"><div class="cmp-tag-template__text">Cita online</div></div>');
-  if (loc.videoConsultation) tags.push('<div class="cmp-tag-template cmp-tag-template--blank"><div class="cmp-tag-template__text">Videoconsulta</div></div>');
-  if (loc.ePrescription) tags.push('<div class="cmp-tag-template cmp-tag-template--blank"><div class="cmp-tag-template__text">Receta electrónica</div></div>');
-  return tags.join('');
-}
+  // --- Bloque izquierdo ---
+  const blockLeft = document.createElement('div');
+  blockLeft.className = 'eds-mp-card__block';
+  blockLeft.appendChild(tagsDiv);
 
-function renderDoctorHeader(d) {
-  const name = formatPersonName(d.name);
-  const specName = formatName(d.specialities?.[0] || '');
-  const titleSuffix = specName ? `, ${specName}` : '';
-  const introBody = specName
-    ? `Consulta la ficha de ${name}, especialista en ${specName} dentro del cuadro médico de ASISA. Encuentra información sobre su especialidad y centros donde atiende.`
-    : `Consulta la ficha de ${name} dentro del cuadro médico de ASISA. Encuentra información sobre su especialidad y centros donde atiende.`;
-  return `<section class="eds-mp-box-head">
-        <h2 class="eds-mp-box-head--title">${name}${titleSuffix}</h2>
-        <p class="eds-mp-box-head--text">${introBody}</p>
-      </section>`;
-}
+  if (isFirst) {
+    if (spec) {
+      const specEl = document.createElement('p');
+      specEl.className = 'eds-mp-card__type--speciality';
+      specEl.innerHTML = `<a href="">${spec}</a>`;
+      blockLeft.appendChild(specEl);
+    }
+    if (h2) {
+      const nameP = document.createElement('p');
+      nameP.className = 'eds-mp-card__type--name';
+      nameP.textContent = h2.textContent;
+      blockLeft.appendChild(nameP);
+    }
+    if (h3) {
+      const colP = document.createElement('p');
+      colP.className = 'eds-mp-card__type--num-member';
+      colP.textContent = `Núm. Colegiado – ${h3.textContent}`;
+      blockLeft.appendChild(colP);
+    }
+  } else {
+    const nameP = document.createElement('p');
+    nameP.className = 'eds-mp-card__type--name';
+    if (centerA) {
+      const a = centerA.cloneNode(true);
+      nameP.appendChild(a);
+    } else {
+      nameP.textContent = spec;
+    }
+    blockLeft.appendChild(nameP);
+  }
 
-function renderBreadcrumb(d) {
-  return `<nav class="cmp-breadcrumb" aria-label="Breadcrumb">
-    <ol class="cmp-breadcrumb__list">
-      <li class="cmp-breadcrumb__item"><a class="cmp-breadcrumb__item-link" href="/">Inicio</a></li>
-      <li class="cmp-breadcrumb__item"><a class="cmp-breadcrumb__item-link" href="/cuadro-medico">Cuadro médico</a></li>
-      <li class="cmp-breadcrumb__item cmp-breadcrumb__item--active">${formatPersonName(d.name)}</li>
-    </ol>
-  </nav>`;
-}
+  // --- Bloque derecho ---
+  const blockRight = document.createElement('div');
+  blockRight.className = 'eds-mp-card__block';
 
-function toCentroSlug(raw) {
-  return String(raw || '')
-    .normalize('NFD').replace(/[̀-ͯ]/g, '')
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '');
-}
+  if (centerA && isFirst) {
+    const p = document.createElement('p');
+    p.className = 'eds-mp-card__type--center';
+    p.appendChild(centerA);
+    blockRight.appendChild(p);
+  }
 
-function renderCenterLink(parentDescription) {
-  if (!parentDescription) return '';
-  const slug = toCentroSlug(parentDescription);
-  const display = formatName(parentDescription);
-  return slug ? `<a href="/cuadro-medico/c/${slug}">${display}</a>` : display;
-}
+  if (addressP) {
+    const addrDiv = document.createElement('div');
+    addrDiv.className = 'eds-mp-card__type--address';
+    addrDiv.innerHTML = `<i class="icon-marker-02"></i>${addressP.textContent}`;
+    blockRight.appendChild(addrDiv);
+  }
 
-function renderLocationCard(d, loc, idx, provinciaDisplayName) {
-  const mapsUrl = (loc.lat && loc.lon) ? `https://www.google.com/maps/dir/?api=1&destination=${loc.lat},${loc.lon}` : '';
-  const addressLine = [loc.address, loc.postalCode, loc.city].filter(Boolean).join(', ');
-  const shareUrl = buildShareUrl(d, loc, provinciaDisplayName);
-  const centerHtml = renderCenterLink(loc.parentDescription);
-  const speciality = formatName(loc.speciality || '');
-  const isFirst = idx === 0;
+  if (mapsA) {
+    const locDiv = document.createElement('div');
+    locDiv.className = 'eds-mp-card__type--location';
+    const btn = document.createElement('div');
+    btn.className = 'button-cmp';
+    mapsA.className = 'button-cmp__text button-cmp__text--link button-location';
+    mapsA.target = '_blank';
+    mapsA.rel = 'noopener';
+    mapsA.innerHTML = `<i class="icon-map-04 icon-large"></i>Cómo llegar`;
+    btn.appendChild(mapsA);
+    locDiv.appendChild(btn);
+    blockRight.appendChild(locDiv);
+  }
 
-  return `<article class="eds-mp-user">
-  <section class="eds-mp-user__content">
-    <div class="eds-mp-card eds-mp-card--type-b eds-mp-card--blue">
-     <div class="eds-mp-card__block">
-        <div class="eds-mp-card__principal-tag">
-             <div class="cmp-tag-template cmp-tag-template--blue">
-              <div class="cmp-tag-template__text">${isFirst ? 'MÉDICO / PROFESIONAL' : 'CENTRO MÉDICO'}</div>
-            </div>
-             ${loc.businessGroup ? '<div class="cmp-tag-template cmp-tag-template--blank"><div class="cmp-tag-template__text">Centro de ASISA</div></div>' : ''}
-            <a class="eds-mp-card__principal-tag--share" href="${shareUrl}" target="_blank" rel="noopener">
-              Compartir
-              <i class="icon-share-021"></i>
-            </a>
-        </div>
+  // Service tags (solo los de servicios, no professional/center/asisa-center)
+  const serviceTags = ['tag:online-appointment', 'tag:video-consultation', 'tag:eprescription'];
+  const serviceTagsDiv = document.createElement('div');
+  serviceTagsDiv.className = 'eds-mp-card__info--tags';
+  tagKeys.filter((k) => serviceTags.includes(k)).forEach((k) => {
+    serviceTagsDiv.appendChild(buildTag(TAG_MAP[k]));
+  });
+  if (serviceTagsDiv.children.length) blockRight.appendChild(serviceTagsDiv);
 
-         ${isFirst ? `
-          <p class="eds-mp-card__type--speciality"><a href="">${speciality}</a></p>
-          <p class="eds-mp-card__type--name">${formatPersonName(d.name)}</p>
-          ${d.collegiateCode ? `<p class="eds-mp-card__type--num-member">Núm. Colegiado – ${d.collegiateCode}</p>` : ''}
-        ` : `
-          <p class="eds-mp-card__type--name">${centerHtml || speciality}</p>
-        `}
-        </div>
-        <div class="eds-mp-card__block">
-        ${centerHtml && isFirst ? `<p class="eds-mp-card__type--center">${centerHtml}</p>` : ''}
-        ${addressLine ? ` <div class="eds-mp-card__type--address"><i class="icon-marker-02"></i>${formatName(addressLine)}</div>` : ''}
-        <div class="eds-mp-card__type--location">
-          ${mapsUrl ? `<div class="button-cmp"><a href="${mapsUrl}" target="_blank" rel="noopener" class="button-cmp__text button-cmp__text--link button-location"><i class="icon-map-04 icon-large"></i>Cómo llegar</a></div>` : ''}
-        </div>
+  // --- Card ---
+  const card = document.createElement('div');
+  card.className = `eds-mp-card eds-mp-card--type-b${isFirst ? ' eds-mp-card--blue' : ''}`;
+  card.appendChild(blockLeft);
+  card.appendChild(blockRight);
 
-        <div class="eds-mp-card__info--tags">
-          ${renderServiceTags(loc)}
-        </div>
-      </div>
-       <div class="eds-mp-card__info--buttons">
-          ${loc.phone ? `<div class="eds-mp-card__info--buttons-detail">
-            <div class="button-cmp"><a href="tel:${loc.phone}" class="button-cmp__text button-cmp__text--tertiary"></i>${loc.phone}</a></div>
-          </div>` : ''}
+  // Botones (teléfono)
+  const buttonsDiv = document.createElement('div');
+  buttonsDiv.className = 'eds-mp-card__info--buttons';
+  if (phoneA) {
+    const detail = document.createElement('div');
+    detail.className = 'eds-mp-card__info--buttons-detail';
+    const btn = document.createElement('div');
+    btn.className = 'button-cmp';
+    phoneA.className = 'button-cmp__text button-cmp__text--tertiary';
+    btn.appendChild(phoneA);
+    detail.appendChild(btn);
+    buttonsDiv.appendChild(detail);
+  }
+  card.appendChild(buttonsDiv);
 
-          </div>
-    </div>
-  </section>`;
-}
+  const userContent = document.createElement('section');
+  userContent.className = 'eds-mp-user__content';
+  userContent.appendChild(card);
 
-function renderSpecCard(d, loc, provinciaDisplayName) {
-  const citaUrl = buildCitaUrl(d, loc, provinciaDisplayName);
-  const ctaLabel = loc.onlineAppointment ? 'Pedir cita online' : 'Pedir cita';
-  const title = formatName(loc.speciality || d.specialities?.[0] || '');
+  // --- Spec card (título especialidad + pedir cita) ---
+  const specSection = document.createElement('section');
+  specSection.className = 'eds-mp-user__content';
+  const specCenter = document.createElement('div');
+  specCenter.className = 'eds-mp-spec-center';
+  const specHeader = document.createElement('div');
+  specHeader.className = 'eds-mp-spec-center__header';
+  const specTitle = document.createElement('h3');
+  specTitle.className = 'eds-mp-spec-center__header--title';
+  specTitle.textContent = spec;
+  specHeader.appendChild(specTitle);
 
-  return `
-   <section class="eds-mp-user__content">
-    <div class="eds-mp-spec-center">
-        <div class="eds-mp-spec-center__header">
-            <h3 class="eds-mp-spec-center__header--title">${title}</h3>
-            <div class="eds-mp-spec-center__header--actions">
-            ${loc.phone ? `<div class="button-cmp"><a href="tel:${loc.phone}" class="button-cmp__text button-cmp__text--tertiary">${loc.phone}</a></div>` : ''}
-            <div class="button-cmp"><a href="${citaUrl}" target="_blank" rel="noopener" class="btn button-cmp__text button-cmp__text--primary">${ctaLabel}</a></div>
-        </div>
-     </div>
-   </section>
-  </article>`;
-}
+  const actions = document.createElement('div');
+  actions.className = 'eds-mp-spec-center__header--actions';
+  if (phoneA) {
+    const btn = document.createElement('div');
+    btn.className = 'button-cmp';
+    const phoneClone = phoneA.cloneNode(true);
+    phoneClone.className = 'button-cmp__text button-cmp__text--tertiary';
+    btn.appendChild(phoneClone);
+    actions.appendChild(btn);
+  }
+  if (citaA) {
+    const btn = document.createElement('div');
+    btn.className = 'button-cmp';
+    citaA.className = 'btn button-cmp__text button-cmp__text--primary';
+    citaA.target = '_blank';
+    citaA.rel = 'noopener';
+    btn.appendChild(citaA);
+    actions.appendChild(btn);
+  }
+  specHeader.appendChild(actions);
+  specCenter.appendChild(specHeader);
+  specSection.appendChild(specCenter);
 
-function renderOtherLocationsHeading(d) {
-  return `<h2 class="eds-mp-user__subtitle"">${formatPersonName(d.name)} también trabaja en estos centros</h2>`;
+  const article = document.createElement('article');
+  article.className = 'eds-mp-user';
+  article.appendChild(userContent);
+  article.appendChild(specSection);
+
+  return article;
 }
 
 export default function decorate(block) {
-  const key = getKeyFromUrl();
-  if (!key) { block.hidden = true; return; }
+  const rows = [...block.querySelectorAll(':scope > div')];
+  if (!rows.length) return;
 
-  // El overlay (api/markup.js · ssrDoctor) emite SSR para Googlebot, pero EDS
-  // hace auto-blocking y descarta las clases CSS internas, por lo que ese SSR
-  // no respeta el design system. Aquí renderizamos siempre la versión
-  // estilada y quitamos el sibling de ubicaciones adicionales que el overlay
-  // emitió por SEO (sino se vería duplicado).
-  const silent = block.children.length > 0;
-  if (!silent) block.innerHTML = '<p>Cargando médico…</p>';
+  // Fila 0 siempre es la cabecera
+  const headerRow = rows[0];
+  const ol = headerRow.querySelector('ol');
+  const h1 = headerRow.querySelector('h1');
+  const introP = headerRow.querySelector('p');
 
-  Promise.all([
-    fetch(`${API_BASE}/api/doctor?key=${key}`).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }),
-    fetch(`${API_BASE}/api/provincias`).then((r) => r.json()),
-  ])
-    .then(([d, provincias]) => {
-      const provinciaDisplayName = (loc) => {
-        const prov = provincias.find((p) => p.slug === loc.provinceSlug);
-        return prov?.displayName || loc.provinceSlug;
-      };
+  // Filas 1..N son ubicaciones
+  const locationRows = rows.slice(1);
 
-      const locs = d.locations || [];
-      if (!locs.length) {
-        block.innerHTML = '<p>No se pudo cargar la ficha del médico.</p>';
-        return;
-      }
+  // Construir DOM final
+  const detail = document.createElement('div');
+  detail.className = 'cmp-medical-detail';
 
-      const parts = [renderDoctorHeader(d)];
-      parts.unshift(renderBreadcrumb(d));
-      parts.push(renderLocationCard(d, locs[0], 0, provinciaDisplayName(locs[0])));
-      parts.push(renderSpecCard(d, locs[0], provinciaDisplayName(locs[0])));
+  if (ol) detail.appendChild(buildBreadcrumb(ol));
 
-      if (locs.length > 1) {
-        parts.push(renderOtherLocationsHeading(d));
-        for (let i = 1; i < locs.length; i += 1) {
-          parts.push(renderLocationCard(d, locs[i], i, provinciaDisplayName(locs[i])));
-          parts.push(renderSpecCard(d, locs[i], provinciaDisplayName(locs[i])));
-        }
-      }
+  if (h1 || introP) {
+    const boxHead = document.createElement('section');
+    boxHead.className = 'eds-mp-box-head';
+    if (h1) { h1.className = 'eds-mp-box-head--title'; boxHead.appendChild(h1); }
+    if (introP) { introP.className = 'eds-mp-box-head--text'; boxHead.appendChild(introP); }
+    detail.appendChild(boxHead);
+  }
 
-      block.innerHTML = `<div class="cmp-medical-detail">${parts.join('')}</div>`;
-      // Limpiar el sibling de SEO con ubicaciones adicionales (ya
-      // renderizamos todas las ubicaciones aquí, estiladas). Solo el div,
-      // NO la .section padre — la section también contiene el bloque
-      // principal y otros bloques (otros-medicos), y borrarla los lleva
-      // a todos.
-      document.querySelectorAll('.cuadro-medico-ficha-doctor-locations').forEach((el) => el.remove());
-    })
-    .catch(() => {
-      if (!silent) block.innerHTML = '<p>No se pudo cargar la ficha del médico.</p>';
+  // Primera ubicación
+  if (locationRows[0]) {
+    detail.appendChild(buildLocationCard(locationRows[0], true));
+  }
+
+  // Ubicaciones adicionales
+  if (locationRows.length > 1) {
+    const subtitle = document.createElement('h2');
+    subtitle.className = 'eds-mp-user__subtitle';
+    // El nombre viene del h2 de la primera fila de ubicación
+    const doctorName = locationRows[0].querySelector('h2')?.textContent || '';
+    subtitle.textContent = `${doctorName} también pasa consulta en estos centros`;
+    detail.appendChild(subtitle);
+
+    locationRows.slice(1).forEach((row) => {
+      detail.appendChild(buildLocationCard(row, false));
     });
+  }
+
+  block.innerHTML = '';
+  block.appendChild(detail);
 }
