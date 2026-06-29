@@ -59,7 +59,7 @@ function buildLocationCard(row, isFirst) {
 
   // --- Tags ---
   const tagsDiv = document.createElement('div');
-  tagsDiv.className = 'cmp-medical-detail__title-block__tags';
+  tagsDiv.className = 'eds-mp-card__principal-tag';
   tagKeys.forEach((key) => {
     const meta = TAG_MAP[key];
     if (meta) tagsDiv.appendChild(buildTag(meta));
