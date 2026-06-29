@@ -168,6 +168,18 @@ function buildLocationCard(row, isFirst) {
     detail.appendChild(btn);
     buttonsDiv.appendChild(detail);
   }
+  if (citaA) {
+    const detail = document.createElement('div');
+    detail.className = 'eds-mp-card__info--buttons-detail';
+    const btn = document.createElement('div');
+    btn.className = 'button-cmp';
+    citaA.className = 'btn button-cmp__text button-cmp__text--primary';
+    citaA.target = '_blank';
+    citaA.rel = 'noopener';
+    btn.appendChild(citaA);
+    detail.appendChild(btn);
+    buttonsDiv.appendChild(detail);
+  }
   card.appendChild(buttonsDiv);
 
   const userContent = document.createElement('section');
@@ -175,16 +187,16 @@ function buildLocationCard(row, isFirst) {
   userContent.appendChild(card);
 
   // --- Spec card (título especialidad + pedir cita) ---
-  const specSection = document.createElement('section');
-  specSection.className = 'eds-mp-user__content';
-  const specCenter = document.createElement('div');
-  specCenter.className = 'eds-mp-spec-center';
-  const specHeader = document.createElement('div');
-  specHeader.className = 'eds-mp-spec-center__header';
-  const specTitle = document.createElement('h3');
-  specTitle.className = 'eds-mp-spec-center__header--title';
-  specTitle.textContent = spec;
-  specHeader.appendChild(specTitle);
+//  const specSection = document.createElement('section');
+//  specSection.className = 'eds-mp-user__content';
+//  const specCenter = document.createElement('div');
+//  specCenter.className = 'eds-mp-spec-center';
+//  const specHeader = document.createElement('div');
+//  specHeader.className = 'eds-mp-spec-center__header';
+//  const specTitle = document.createElement('h3');
+//  specTitle.className = 'eds-mp-spec-center__header--title';
+//  specTitle.textContent = spec;
+//  specHeader.appendChild(specTitle);
 
   const actions = document.createElement('div');
   actions.className = 'eds-mp-spec-center__header--actions';
