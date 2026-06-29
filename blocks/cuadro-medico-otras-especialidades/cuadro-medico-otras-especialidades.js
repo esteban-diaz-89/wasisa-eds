@@ -10,61 +10,37 @@
  *   - .cmp-tag-template--blank / --blue       → chip
  */
 
-//const API_BASE = 'http://localhost:3000';
-//
-//function getSlugsFromUrl() {
-//  const parts = window.location.pathname.split('/');
-//  const pIdx = parts.indexOf('p');
-//  const peIdx = parts.indexOf('pe');
-//  const eIdx = parts.indexOf('e');
-//  let specSlug = peIdx !== -1 ? parts[peIdx + 1] : null;
-//  if (!specSlug && eIdx !== -1) specSlug = parts[eIdx + 1];
-//  return {
-//    provSlug: pIdx !== -1 ? parts[pIdx + 1] : null,
-//    specSlug,
-//  };
-//}
-//
-//function renderProvincialChips(provincia, specs, provSlug) {
-//  return `
-//  <div class="eds-mp-other-specs">
-//    <h2 class="eds-mp-other-specs__title">Otras especialidades en ${provincia.displayName}</h2>
-//    <ul class="eds-mp-other-specs__container">
-//      ${specs.map((e) => {
-//    const variant = 'cmp-tag-template--blue-100';
-//    return `<li><a class="cmp-tag-template ${variant}" href="/cuadro-medico/p/${provSlug}/pe/${e.slug}"><span class="cmp-tag-template__text">${e.name}</span></a></li>`;
-//  }).join('')}
-//    </ul></div>`;
-//}
-//
-//function renderNationalChips(specs, specSlug) {
-//  const top = specs.slice(0, 15);
-//  return `
-//    <h2 class="cmp-medical-detail__subtitle">Otras especialidades del Cuadro médico ASISA</h2>
-//    <div class="cmp-medical-detail__other-specialities">
-//      ${top.map((e) => {
-//    const variant = e.slug === specSlug ? 'cmp-tag-template--blue' : 'cmp-tag-template--blank';
-//    return `<a class="cmp-tag-template ${variant}" href="/cuadro-medico/e/${e.slug}"><span class="cmp-tag-template__text">${e.name}</span></a>`;
-//  }).join('')}
-//    </div>`;
-//}
-
 export default function decorate(block) {
-  const h2 = block.querySelector('h2');
-  const links = [...block.querySelectorAll('a')];
 
-  block.innerHTML = `
-    <div class="eds-mp-other-specs">
-      <h2 class="eds-mp-other-specs__title">${h2.textContent}</h2>
-      <ul class="eds-mp-other-specs__container">
-        ${links.map(a => `
-          <li>
-            <a class="cmp-tag-template cmp-tag-template--blue-100" href="${a.getAttribute('href')}">
-              <span class="cmp-tag-template__text">${a.textContent}</span>
-            </a>
-          </li>
-        `).join('')}
-      </ul>
-    </div>
-  `;
+  // 1. Añadir clase al wrapper interno que ya existe
+  const inner = block.querySelector(':scope > div > div');
+  const h2 = inner.querySelector('h2');
+  const ul = inner.querySelector('ul');
+
+  // Crear el div wrapper sin tocar h2 ni ul
+  const wrapper = document.createElement('div');
+  wrapper.className = 'eds-mp-other-specs';
+
+  // Mover h2 y ul al wrapper (no los recrea, los mueve)
+  h2.classList.add('eds-mp-other-specs__title');
+  ul.classList.add('eds-mp-other-specs__container');
+
+  // Decorar cada li/a sin reemplazarlos
+  ul.querySelectorAll('li').forEach(li => {
+    const a = li.querySelector('a');
+    if (!a) return;
+    a.classList.add('cmp-tag-template', 'cmp-tag-template--blue-100');
+
+    // Envolver el texto en span sin perder el nodo de texto
+    const span = document.createElement('span');
+    span.className = 'cmp-tag-template__text';
+    span.textContent = a.textContent;
+    a.textContent = '';
+    a.appendChild(span);
+  });
+
+  // Reorganizar el DOM: mover h2 y ul al wrapper
+  inner.appendChild(wrapper);
+  wrapper.appendChild(h2);
+  wrapper.appendChild(ul);
 }
