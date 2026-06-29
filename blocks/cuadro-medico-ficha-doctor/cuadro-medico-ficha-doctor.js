@@ -198,33 +198,33 @@ function buildLocationCard(row, isFirst) {
   specTitle.textContent = spec;
   specHeader.appendChild(specTitle);
 
-  const actions = document.createElement('div');
-  actions.className = 'eds-mp-spec-center__header--actions';
-  if (phoneA) {
-    const btn = document.createElement('div');
-    btn.className = 'button-cmp';
-    const phoneClone = phoneA.cloneNode(true);
-    phoneClone.className = 'button-cmp__text button-cmp__text--tertiary';
-    btn.appendChild(phoneClone);
-    actions.appendChild(btn);
-  }
-  if (citaA) {
-    const btn = document.createElement('div');
-    btn.className = 'button-cmp';
-    citaA.className = 'btn button-cmp__text button-cmp__text--primary';
-    citaA.target = '_blank';
-    citaA.rel = 'noopener';
-    btn.appendChild(citaA);
-    actions.appendChild(btn);
-  }
-  specHeader.appendChild(actions);
-  specCenter.appendChild(specHeader);
-  specSection.appendChild(specCenter);
+//  const actions = document.createElement('div');
+//  actions.className = 'eds-mp-spec-center__header--actions';
+//  if (phoneA) {
+//    const btn = document.createElement('div');
+//    btn.className = 'button-cmp';
+//    const phoneClone = phoneA.cloneNode(true);
+//    phoneClone.className = 'button-cmp__text button-cmp__text--tertiary';
+//    btn.appendChild(phoneClone);
+//    actions.appendChild(btn);
+//  }
+//  if (citaA) {
+//    const btn = document.createElement('div');
+//    btn.className = 'button-cmp';
+//    citaA.className = 'btn button-cmp__text button-cmp__text--primary';
+//    citaA.target = '_blank';
+//    citaA.rel = 'noopener';
+//    btn.appendChild(citaA);
+//    actions.appendChild(btn);
+//  }
+//  specHeader.appendChild(actions);
+//  specCenter.appendChild(specHeader);
+//  specSection.appendChild(specCenter);
 
   const article = document.createElement('article');
   article.className = 'eds-mp-user';
   article.appendChild(userContent);
-  article.appendChild(specSection);
+//  article.appendChild(specSection);
 
   return article;
 }
