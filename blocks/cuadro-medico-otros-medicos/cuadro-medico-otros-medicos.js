@@ -13,77 +13,53 @@
  *   - .cmp-tag-template--blank                → chip
  */
 
-const API_BASE = 'http://localhost:3000';
-
-function getKeyFromUrl() {
-  const parts = window.location.pathname.split('/');
-  const dIdx = parts.indexOf('d');
-  return dIdx !== -1 ? parts[dIdx + 1] : null;
-}
-
-function formatName(raw) {
-  if (!raw) return '';
-  return raw.toLowerCase().split(/(\s+)/).map((w) => (w && /\S/.test(w) ? w.charAt(0).toUpperCase() + w.slice(1) : w)).join('');
-}
-
-function formatPersonName(raw) {
-  if (!raw) return '';
-  const [last = '', first = ''] = raw.split(',').map((s) => s.trim());
-  const ordered = first ? `${first} ${last}` : last;
-  const formatted = formatName(ordered);
-  const given = formatted.split(/\s+/)[0] || '';
-  const prefix = /a$/i.test(given) ? 'Dra.' : 'Dr.';
-  return `${prefix} ${formatted}`;
-}
-
-function chip(p) {
-  return `<a class="cmp-tag-template cmp-tag-template--blank" href="${p.detailUrl}">
-    <span class="cmp-tag-template__text">${formatPersonName(p.name)}</span>
-  </a>`;
-}
-
-function chipList(title, items) {
-  if (!items.length) return '';
-  return `<section>
-    <h2 class="cmp-medical-detail__subtitle">${title}</h2>
-    <div class="cmp-medical-detail__other-specialities">${items.map(chip).join('')}</div>
-  </section>`;
-}
-
 export default function decorate(block) {
-  const key = getKeyFromUrl();
-  if (!key) { block.hidden = true; return; }
+  const inner = block.querySelector(':scope > div > div');
 
-  // Si el overlay ya pintó SSR, no mostramos spinner: reemplazamos en silencio
-  // cuando llegan los datos (con las clases del design system aplicadas).
-  const silent = block.children.length > 0;
-  if (!silent) block.innerHTML = '<p>Cargando…</p>';
+  const h2 = inner.querySelector('h2');
+  const h3s = [...inner.querySelectorAll('h3')];
 
-  fetch(`${API_BASE}/api/doctor?key=${key}`)
-    .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
-    .then((doctor) => Promise.all([
-      Promise.resolve(doctor),
-      fetch(`${API_BASE}/api/provincias?slug=${doctor.provinceSlug}`).then((r) => r.json()).catch(() => ({})),
-      fetch(`${API_BASE}/api/providers?provinceSlug=${doctor.provinceSlug}&specSlug=${doctor.specSlug}&tab=professionals&limit=50`).then((r) => r.json()),
-    ]))
-    .then(([doctor, provincia, providersResp]) => {
-      const currentUrl = `/cuadro-medico/d/${key}`;
-      const allOthers = (providersResp.results || []).filter((p) => p.detailUrl !== currentUrl);
-      const specName = formatName(doctor.specialities?.[0] || doctor.specSlug || '');
-      const provName = provincia?.displayName || doctor.provinceSlug;
-      const centerName = doctor.parentDescription ? formatName(doctor.parentDescription) : '';
+  // Construir las cards a partir de cada h3 + su p siguiente,
+  // sin destruir los nodos — los movemos al nuevo DOM
+  const cards = h3s.map((h3) => {
+    const p = h3.nextElementSibling;
+    const a = h3.querySelector('a');
 
-      const sameCenter = centerName
-        ? allOthers.filter((p) => formatName(p.parentDescription || '') === centerName)
-        : [];
+    const article = document.createElement('article');
+    article.className = 'cm-fcentro__doctor-card';
 
-      const html = [
-        chipList(`Otros médicos de ${specName} en ${provName}`, allOthers.slice(0, 20)),
-        centerName ? chipList(`Otros médicos de ${specName} en ${centerName}`, sameCenter.slice(0, 10)) : '',
-      ].filter(Boolean).join('');
+    const nameEl = document.createElement('h3');
+    nameEl.className = 'cm-fcentro__doctor-name';
 
-      if (!html) { block.hidden = true; return; }
-      block.innerHTML = html;
-    })
-    .catch(() => { block.hidden = true; });
+    if (a) {
+      // Reutilizar el <a> existente, solo añadir clase si fuera necesario
+      nameEl.appendChild(a);
+    } else {
+      nameEl.textContent = h3.textContent;
+    }
+
+    article.appendChild(nameEl);
+
+    if (p) {
+      p.className = 'cm-fcentro__doctor-spec';
+      article.appendChild(p);
+    }
+
+    return article;
+  });
+
+  // Construir la nueva estructura sin innerHTML
+  const section = document.createElement('section');
+
+  h2.className = 'cmp-medical-detail__subtitle';
+  section.appendChild(h2);
+
+  const container = document.createElement('div');
+  container.className = 'cmp-medical-detail__other-specialities';
+  cards.forEach((card) => container.appendChild(card));
+  section.appendChild(container);
+
+  // Vaciar inner y montar la estructura final
+  inner.innerHTML = '';
+  inner.appendChild(section);
 }
