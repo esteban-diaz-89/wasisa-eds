@@ -686,7 +686,8 @@ async function waitForFirstImage(section) {
  */
 
 async function loadSection(section, loadCallback) {
-  const status = section?.dataset?.sectionStatus;
+  if (!section) return;
+  const status = section.dataset.sectionStatus;
   if (!status || status === 'initialized') {
     section.dataset.sectionStatus = 'loading';
     const blocks = [...section.querySelectorAll('div.block')];
