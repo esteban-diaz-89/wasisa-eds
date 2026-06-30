@@ -30,12 +30,14 @@ export default function decorate(block) {
 
       newLi.appendChild(span);
     } else if (a) {
-      a.classList.add('cmp-breadcrumb__item-link');
-      newLi.appendChild(a);
+      const clone = a.cloneNode(true);
+      clone.classList.add('cmp-breadcrumb__item-link');
+      newLi.appendChild(clone);
     }
 
     newOl.appendChild(newLi);
   });
+
   nav.appendChild(newOl);
   inner.appendChild(nav);
 }
