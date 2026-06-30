@@ -58,12 +58,14 @@ function buildLocationCard(row, isFirst) {
   const citaA = row.querySelector('a[title^="Pedir cita"]');
 
   // --- Tags ---
+  const tags = ['tag:professional', 'tag:center', 'tag:asisa-center'];
   const tagsDiv = document.createElement('div');
   tagsDiv.className = 'eds-mp-card__principal-tag';
-  tagKeys.forEach((key) => {
+  tagKeys.filter((k) => tags.includes(k)).forEach((key) => {
     const meta = TAG_MAP[key];
     if (meta) tagsDiv.appendChild(buildTag(meta));
   });
+
   if (shareA) {
     shareA.className = 'eds-mp-card__principal-tag--share';
     shareA.target = '_blank';
