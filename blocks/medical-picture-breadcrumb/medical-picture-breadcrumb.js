@@ -7,37 +7,36 @@ export default function decorate(block) {
 
   const lis = [...ol.querySelectorAll('li')];
 
+  ol.classList.add('cmp-breadcrumb__list');
+
   const nav = document.createElement('nav');
   nav.className = 'cmp-breadcrumb';
   nav.setAttribute('aria-label', 'Breadcrumb');
-
-  const newOl = document.createElement('ol');
-  newOl.className = 'cmp-breadcrumb__list';
+  nav.setAttribute('role', 'navigation');
 
   lis.forEach((li, i) => {
     const isLast = i === lis.length - 1;
     const a = li.querySelector('a');
 
-    const newLi = document.createElement('li');
-    newLi.className = `cmp-breadcrumb__item${isLast ? ' cmp-breadcrumb__item--active' : ''}`;
+    li.classList.add('cmp-breadcrumb__item');
 
     if (isLast) {
-      newLi.setAttribute('aria-current', 'page');
+      li.classList.add('cmp-breadcrumb__item--active');
+      li.setAttribute('aria-current', 'page');
 
-      const span = document.createElement('span');
-      span.className = 'cmp-breadcrumb__item-link';
-      span.textContent = a ? a.textContent : li.textContent;
+      if (!a) {
+        const span = document.createElement('span');
+        span.className = 'cmp-breadcrumb__item-link';
+        span.textContent = li.textContent;
 
-      newLi.appendChild(span);
+        li.textContent = '';
+        li.appendChild(span);
+      }
     } else if (a) {
-      const clone = a.cloneNode(true);
-      clone.classList.add('cmp-breadcrumb__item-link');
-      newLi.appendChild(clone);
+      a.classList.add('cmp-breadcrumb__item-link');
     }
-
-    newOl.appendChild(newLi);
   });
 
-  nav.appendChild(newOl);
   inner.appendChild(nav);
+  nav.appendChild(ol);
 }
