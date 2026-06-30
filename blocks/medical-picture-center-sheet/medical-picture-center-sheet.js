@@ -14,7 +14,7 @@ export default function decorate(block) {
   const address = ps[1]?.textContent.trim();
 
   const maps = links.find(a => a.textContent.trim() === 'maps');
-  const phone = links.find(a => a.textContent.trim() === 'phone');
+  const phone = links.find(a => a.title === 'phone');
   const share = links.find(a => a.textContent.trim() === 'share');
 
   const mainTags = uls[0]
