@@ -33,7 +33,14 @@ export default function decorate(block) {
     const children = [...spec.children];
 
     const titleP = children.find(el => el.tagName === 'P');
-    const phone = children.find(el => el.tagName === 'A' && el.title === 'phone');
+
+    const phone = children.find(el =>
+      el.tagName === 'A' && el.getAttribute('title') === 'phone'
+    );
+
+    const appointment = children.find(el =>
+      el.tagName === 'A' && el.getAttribute('title') === 'appointment'
+    );
 
     const innerLists = children.filter(el => el.tagName === 'UL');
     const doctorsList = innerLists[0];
@@ -60,17 +67,30 @@ export default function decorate(block) {
     header.appendChild(titleLi);
 
     // ACTIONS
-    if (phone) {
+    if (phone || appointment) {
       const actions = document.createElement('li');
       actions.className = 'eds-mp-spec-center__header--actions';
 
-      const btnWrap = document.createElement('p');
-      btnWrap.className = 'button-cmp';
+      if (phone) {
+        const wrap = document.createElement('p');
+        wrap.className = 'button-cmp';
 
-      phone.className = 'btn button-cmp__text button-cmp__text--tertiary button-location';
+        phone.className = 'btn button-cmp__text button-cmp__text--tertiary button-location';
 
-      btnWrap.appendChild(phone);
-      actions.appendChild(btnWrap);
+        wrap.appendChild(phone);
+        actions.appendChild(wrap);
+      }
+
+      if (appointment) {
+        const wrap = document.createElement('p');
+        wrap.className = 'button-cmp';
+
+        appointment.className = 'btn button-cmp__text button-cmp__text--primary';
+        appointment.textContent = 'Pedir Cita';
+
+        wrap.appendChild(appointment);
+        actions.appendChild(wrap);
+      }
 
       header.appendChild(actions);
     }
