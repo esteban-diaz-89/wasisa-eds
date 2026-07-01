@@ -3,22 +3,18 @@ export default function decorate(block) {
   if (!inner) return;
 
   // ----------------------------
-  // GET DATA
+  // GET DATA (EDS HTML plano)
   // ----------------------------
 
-  const ps = [...inner.querySelectorAll('p')]
-    .filter(p => !p.querySelector('a'));
-
+  const ps = [...inner.querySelectorAll('p')];
   const links = [...inner.querySelectorAll('a')];
   const uls = [...inner.querySelectorAll('ul')];
 
-  const providerType = ps[0]?.textContent.trim(); // Centro Médico / Hospital / Lab
-  const businessGroup = ps[1]?.textContent.trim(); // asisa
-  const name = ps[2]?.textContent.trim();
-  const address = ps[3]?.textContent.trim();
+  const name = ps[0]?.textContent.trim();
+  const address = ps[1]?.textContent.trim();
 
   const maps = links.find(a => a.textContent.trim() === 'maps');
-  const phone = links.find(a => a.getAttribute('title') === 'phone');
+  const phone = links.find(a => a.title === 'phone');
   const share = links.find(a => a.textContent.trim() === 'share');
 
   const mainTags = uls[0]
@@ -30,7 +26,7 @@ export default function decorate(block) {
     : [];
 
   // ----------------------------
-  // BUILD UI
+  // BUILD UI FINAL
   // ----------------------------
 
   const wrapper = document.createElement('div');
@@ -43,30 +39,35 @@ export default function decorate(block) {
   card.className = 'eds-mp-card eds-mp-card--type-b eds-mp-card--blue';
 
   // ----------------------------
-  // LEFT BLOCK
+  // BLOCK 1 (LEFT)
   // ----------------------------
 
   const left = document.createElement('div');
   left.className = 'eds-mp-card__block';
 
+  // TAGS PRINCIPALES
   const principalTags = document.createElement('div');
   principalTags.className = 'eds-mp-card__principal-tag';
 
-  // Tag principal
-  if (providerType) {
-    const mainTag = document.createElement('div');
-    mainTag.className = 'cmp-tag-template cmp-tag-template--blue';
-    mainTag.innerHTML = `<p class="cmp-tag-template__text">${providerType}</p>`;
-    principalTags.appendChild(mainTag);
-  }
+  // TAG fijo
+  const mainTag = document.createElement('div');
+  mainTag.className = 'cmp-tag-template cmp-tag-template--blue';
+  mainTag.innerHTML = `<p class="cmp-tag-template__text">CENTRO MÉDICO</p>`;
+  principalTags.appendChild(mainTag);
 
-  // businessGroup (ASISA)
-  if (businessGroup === 'asisa') {
-    const asisaTag = document.createElement('div');
-    asisaTag.className = 'cmp-tag-template cmp-tag-template--blank';
-    asisaTag.innerHTML = `<p class="cmp-tag-template__text">Centro de ASISA</p>`;
-    principalTags.appendChild(asisaTag);
-  }
+  // TAGS dinámicos (grupo 1)
+  mainTags.forEach(tag => {
+    if (tag === 'center') return; // ya está fijo
+
+    const div = document.createElement('div');
+    div.className = 'cmp-tag-template cmp-tag-template--blank';
+
+    const label =
+      tag === 'asisa' ? 'Centro de ASISA' : tag;
+
+    div.innerHTML = `<p class="cmp-tag-template__text">${label}</p>`;
+    principalTags.appendChild(div);
+  });
 
   // SHARE
   if (share) {
@@ -86,7 +87,7 @@ export default function decorate(block) {
   }
 
   // ----------------------------
-  // RIGHT BLOCK
+  // BLOCK 2 (RIGHT)
   // ----------------------------
 
   const right = document.createElement('div');
@@ -160,7 +161,7 @@ export default function decorate(block) {
   }
 
   // ----------------------------
-  // FINAL
+  // COMPOSE FINAL
   // ----------------------------
 
   card.appendChild(left);
@@ -170,6 +171,7 @@ export default function decorate(block) {
   content.appendChild(card);
   wrapper.appendChild(content);
 
+  // Limpieza controlada (OK aquí)
   block.textContent = '';
   block.appendChild(wrapper);
 }
