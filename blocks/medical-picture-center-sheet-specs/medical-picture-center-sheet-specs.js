@@ -33,14 +33,8 @@ export default function decorate(block) {
     const children = [...spec.children];
 
     const titleP = children.find(el => el.tagName === 'P');
-
-    const phone = children.find(el =>
-      el.tagName === 'A' && el.getAttribute('title') === 'phone'
-    );
-
-    const appointment = children.find(el =>
-      el.tagName === 'A' && el.getAttribute('title') === 'appointment'
-    );
+    const phone = spec.querySelector('a[title="phone"]');
+    const appointment = spec.querySelector('a[title="appointment"]');
 
     const innerLists = children.filter(el => el.tagName === 'UL');
     const doctorsList = innerLists[0];
