@@ -25,7 +25,7 @@ export function buildLocationCard(inner, isFirst) {
 
   const ps = [...inner.querySelectorAll(':scope > p')];
   const specP = ps.find((p) => !p.querySelector('a'));
-  const specA = inner.querySelector('a[title="enlace especialidad"]');
+  const specA = inner.querySelector('a[href^="/cuadro-medico/e/"]');
   const spec = specA?.textContent.trim() || '';
   const addressP = ps.filter((p) => !p.querySelector('a') && p !== specP)[0];
 
@@ -98,7 +98,7 @@ export function buildLocationCard(inner, isFirst) {
     if (spec) {
       const specEl = document.createElement('p');
       specEl.className = 'eds-mp-card__type--speciality';
-      specEl.innerHTML = specA.cloneNode(true);
+      specEl.innerHTML = specA?.cloneNode(true);
       blockLeft.appendChild(specEl);
     }
   }
