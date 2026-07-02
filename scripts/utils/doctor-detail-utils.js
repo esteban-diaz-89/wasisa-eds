@@ -23,14 +23,17 @@ export function buildLocationCard(inner, isFirst) {
     ? [...ul.querySelectorAll('li')].map((li) => li.textContent.trim())
     : [];
 
-  const ps = [...inner.querySelectorAll(':scope > p')];
-  const specP = ps.find((p) => !p.querySelector('a'));
-  const specA = inner.querySelector('a[href^="/cuadro-medico/e/"]');
+  // Especialidad — ahora es un <a> directo hijo del inner, no dentro de <p>
+  const specA = inner.querySelector(':scope > a[href^="/cuadro-medico/e/"]');
   const spec = specA?.textContent.trim() || '';
-  const addressP = ps.filter((p) => !p.querySelector('a') && p !== specP)[0];
+  const specHref = specA?.getAttribute('href') || '';
 
-  const h2 = inner.querySelector('h2');
-  const h3 = inner.querySelector('h3');
+  // Párrafos sin enlace — el primero sin <a> es la dirección
+  const ps = [...inner.querySelectorAll(':scope > p')];
+  const addressP = ps.find((p) => !p.querySelector('a'));
+
+  const h2 = inner.querySelector(':scope > h2');
+  const h3 = inner.querySelector(':scope > h3');
   const centerA = inner.querySelector('a[href^="/cuadro-medico/c/"]');
   const mapsA = inner.querySelector('a[href*="google.com/maps"]');
   const phoneA = inner.querySelector('a[href^="tel:"]');
@@ -68,7 +71,10 @@ export function buildLocationCard(inner, isFirst) {
     if (spec) {
       const specEl = document.createElement('p');
       specEl.className = 'eds-mp-card__type--speciality';
-      specEl.innerHTML = `<a href="${}">${spec}</a>`;
+      const a = document.createElement('a');
+      a.href = specHref;
+      a.textContent = spec;
+      specEl.appendChild(a);
       blockLeft.appendChild(specEl);
     }
     if (h2) {
@@ -98,7 +104,10 @@ export function buildLocationCard(inner, isFirst) {
     if (spec) {
       const specEl = document.createElement('p');
       specEl.className = 'eds-mp-card__type--speciality';
-      specEl.innerHTML = specA?.cloneNode(true);
+      const a = document.createElement('a');
+      a.href = specHref;
+      a.textContent = spec;
+      specEl.appendChild(a);
       blockLeft.appendChild(specEl);
     }
   }
@@ -148,7 +157,7 @@ export function buildLocationCard(inner, isFirst) {
   card.appendChild(blockLeft);
   card.appendChild(blockRight);
 
-  // --- Botones --- solo se renderizan si existen en el DOM
+  // --- Botones ---
   const buttonsDiv = document.createElement('div');
   buttonsDiv.className = 'eds-mp-card__info--buttons';
 
