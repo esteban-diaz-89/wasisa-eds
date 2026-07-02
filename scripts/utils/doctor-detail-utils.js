@@ -24,7 +24,7 @@ export function buildLocationCard(inner, isFirst) {
     : [];
 
   // Especialidad — ahora es un <a> directo hijo del inner, no dentro de <p>
-  const specA = inner.querySelector(':scope > a[href^="/cuadro-medico/e/"]');
+  const specA = inner.querySelector(':scope > p > a[href^="/cuadro-medico/e/"]');
   const spec = specA?.textContent.trim() || '';
   const specHref = specA?.getAttribute('href') || '';
 
