@@ -94,7 +94,7 @@ export default function decorate(block) {
     // ----------------------------
     // DETAILS
     // ----------------------------
-    if (doctorsList && subsList) {
+    if (doctorsList || subsList) {
         const details = document.createElement('details');
         details.className = 'eds-mp-spec-center__details';
 
