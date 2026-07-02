@@ -94,10 +94,11 @@ export default function decorate(block) {
     // ----------------------------
     // DETAILS
     // ----------------------------
-    if (doctorsList || subsList) {
-        const details = document.createElement('details');
-        details.className = 'eds-mp-spec-center__details';
 
+    const details = document.createElement('details');
+    details.className = 'eds-mp-spec-center__details';
+
+    if (doctorsList || subsList) {
         const summary = document.createElement('summary');
         summary.textContent = 'Ver más información';
 
