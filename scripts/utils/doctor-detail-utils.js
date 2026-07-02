@@ -25,7 +25,8 @@ export function buildLocationCard(inner, isFirst) {
 
   const ps = [...inner.querySelectorAll(':scope > p')];
   const specP = ps.find((p) => !p.querySelector('a'));
-  const spec = specP?.textContent.trim() || '';
+  const specA = inner.querySelector('a[title="enlace especialidad"');
+  const spec = specA?.textContent.trim() || '';
   const addressP = ps.filter((p) => !p.querySelector('a') && p !== specP)[0];
 
   const h2 = inner.querySelector('h2');
@@ -67,7 +68,7 @@ export function buildLocationCard(inner, isFirst) {
     if (spec) {
       const specEl = document.createElement('p');
       specEl.className = 'eds-mp-card__type--speciality';
-      specEl.innerHTML = `<a href="">${spec}</a>`;
+      specEl.innerHTML = `<a href="${}">${spec}</a>`;
       blockLeft.appendChild(specEl);
     }
     if (h2) {
@@ -97,7 +98,7 @@ export function buildLocationCard(inner, isFirst) {
     if (spec) {
       const specEl = document.createElement('p');
       specEl.className = 'eds-mp-card__type--speciality';
-      specEl.innerHTML = `<a href="">${spec}</a>`;
+      specEl.innerHTML = specA.cloneNode(true);
       blockLeft.appendChild(specEl);
     }
   }
