@@ -146,8 +146,8 @@ export default function decorate(block) {
         }
 
         details.appendChild(detailsList);
+        card.appendChild(details);
     }
-    card.appendChild(details);
 
     content.appendChild(card);
   });
