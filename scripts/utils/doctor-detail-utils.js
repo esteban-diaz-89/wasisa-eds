@@ -25,7 +25,7 @@ export function buildLocationCard(inner, isFirst) {
 
   const ps = [...inner.querySelectorAll(':scope > p')];
   const specP = ps.find((p) => !p.querySelector('a'));
-  const specA = inner.querySelector('a[title="enlace especialidad"');
+  const specA = inner.querySelector('a[title="enlace especialidad"]');
   const spec = specA?.textContent.trim() || '';
   const addressP = ps.filter((p) => !p.querySelector('a') && p !== specP)[0];
 
