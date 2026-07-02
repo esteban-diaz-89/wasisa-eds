@@ -143,7 +143,7 @@ export function buildLocationCard(inner, isFirst) {
 
   // --- Card ---
   const card = document.createElement('div');
-  card.className = `eds-mp-card eds-mp-card--type-b${isFirst ? ' eds-mp-card--blue' : ''}`;
+  card.className = 'eds-mp-card eds-mp-card--type-b eds-mp-card--blue';
   card.appendChild(blockLeft);
   card.appendChild(blockRight);
 
