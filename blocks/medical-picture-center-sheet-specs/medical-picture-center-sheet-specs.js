@@ -94,57 +94,58 @@ export default function decorate(block) {
     // ----------------------------
     // DETAILS
     // ----------------------------
+    if (doctorsList && subsList) {
+        const details = document.createElement('details');
+        details.className = 'eds-mp-spec-center__details';
 
-    const details = document.createElement('details');
-    details.className = 'eds-mp-spec-center__details';
+        const summary = document.createElement('summary');
+        summary.textContent = 'Ver más información';
 
-    const summary = document.createElement('summary');
-    summary.textContent = 'Ver más información';
+        details.appendChild(summary);
 
-    details.appendChild(summary);
+        const detailsList = document.createElement('ul');
+        detailsList.className = 'eds-mp-spec-center__details--list';
 
-    const detailsList = document.createElement('ul');
-    detailsList.className = 'eds-mp-spec-center__details--list';
+        // DOCTORS
+        if (doctorsList) {
+          const item = document.createElement('li');
+          item.className = 'eds-mp-spec-center__details--list-item';
 
-    // DOCTORS
-    if (doctorsList) {
-      const item = document.createElement('li');
-      item.className = 'eds-mp-spec-center__details--list-item';
+          item.innerHTML = `
+            <h4><i class="icon-equipo-medico"></i>Cuadro de especialistas</h4>
+          `;
 
-      item.innerHTML = `
-        <h4><i class="icon-equipo-medico"></i>Cuadro de especialistas</h4>
-      `;
+          const ol = document.createElement('ol');
 
-      const ol = document.createElement('ol');
+          [...doctorsList.children].forEach(li => {
+            const newLi = document.createElement('li');
+            newLi.textContent = li.textContent;
+            ol.appendChild(newLi);
+          });
 
-      [...doctorsList.children].forEach(li => {
-        const newLi = document.createElement('li');
-        newLi.textContent = li.textContent;
-        ol.appendChild(newLi);
-      });
+          item.appendChild(ol);
+          detailsList.appendChild(item);
+        }
 
-      item.appendChild(ol);
-      detailsList.appendChild(item);
+        // SUBS
+        if (subsList) {
+          const item = document.createElement('li');
+          item.className = 'eds-mp-spec-center__details--list-item';
+          item.innerHTML = `<h4><i class="icon-hospital"></i>Subespecialidades</h4>`;
+          const ol = document.createElement('ol');
+
+          [...subsList.children].forEach(li => {
+            const newLi = document.createElement('li');
+            newLi.textContent = li.textContent;
+            ol.appendChild(newLi);
+          });
+
+          item.appendChild(ol);
+          detailsList.appendChild(item);
+        }
+
+        details.appendChild(detailsList);
     }
-
-    // SUBS
-    if (subsList) {
-      const item = document.createElement('li');
-      item.className = 'eds-mp-spec-center__details--list-item';
-      item.innerHTML = `<h4><i class="icon-hospital"></i>Subespecialidades</h4>`;
-      const ol = document.createElement('ol');
-
-      [...subsList.children].forEach(li => {
-        const newLi = document.createElement('li');
-        newLi.textContent = li.textContent;
-        ol.appendChild(newLi);
-      });
-
-      item.appendChild(ol);
-      detailsList.appendChild(item);
-    }
-
-    details.appendChild(detailsList);
     card.appendChild(details);
 
     content.appendChild(card);
