@@ -9,7 +9,7 @@ export default async function decorate(block) {
 
   console.log("esto es el header");
   const event = new CustomEvent("LoadHeader", {
-    detail: 'stage'
+    environment: 'stage'
   });
   document.dispatchEvent(event);
 
