@@ -1,10 +1,17 @@
 const TAG_MAP = {
-  'tag:professional': { text: 'MÉDICO / PROFESIONAL', cls: 'cmp-tag-template--blue' },
-  'tag:center':       { text: 'CENTRO MÉDICO',        cls: 'cmp-tag-template--blue' },
-  'tag:asisa-center': { text: 'Centro de ASISA',      cls: 'cmp-tag-template--blank' },
-  'tag:eprescription':      { text: 'Receta electrónica', cls: 'cmp-tag-template--blank' },
-  'tag:online-appointment': { text: 'Cita online',        cls: 'cmp-tag-template--blank' },
-  'tag:video-consultation': { text: 'Videoconsulta',      cls: 'cmp-tag-template--blank' },
+  // Tipo principal — siempre blue
+  'tag:professional':       { text: 'MÉDICO / PROFESIONAL',  cls: 'cmp-tag-template--blue' },
+  'tag:HOSPITAL':           { text: 'HOSPITAL',              cls: 'cmp-tag-template--blue' },
+  'tag:CENTRO MÉDICO':      { text: 'CENTRO MÉDICO',         cls: 'cmp-tag-template--blue' },
+  'tag:TRANSPORTE SANITARIO': { text: 'TRANSPORTE SANITARIO', cls: 'cmp-tag-template--blue' },
+  'tag:LABORATORIO':        { text: 'LABORATORIO',           cls: 'cmp-tag-template--blue' },
+  'tag:OXIGENOTERAPIA':     { text: 'OXIGENOTERAPIA',        cls: 'cmp-tag-template--blue' },
+
+  // Tags de servicio — siempre blank
+  'tag:asisa-center':         { text: 'Centro de ASISA',     cls: 'cmp-tag-template--blank' },
+  'tag:eprescription':        { text: 'Receta electrónica',  cls: 'cmp-tag-template--blank' },
+  'tag:online-appointment':   { text: 'Cita online',         cls: 'cmp-tag-template--blank' },
+  'tag:video-consultation':   { text: 'Videoconsulta',       cls: 'cmp-tag-template--blank' },
 };
 
 export function buildTag({ text, cls }) {
