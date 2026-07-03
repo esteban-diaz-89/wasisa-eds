@@ -8,7 +8,7 @@ import { loadFragment } from '../fragment/fragment.js';
 export default async function decorate(block) {
 
   const event = new CustomEvent("LoadHeader", {
-    environment: 'stage'
+    detail: { }
   });
   window.dispatchEvent(event);
 
