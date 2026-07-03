@@ -10,6 +10,6 @@ export default async function decorate(block) {
   const event = new CustomEvent("LoadHeader", {
     detail: { }
   });
-  window.dispatchEvent(event);
+  document.dispatchEvent(event);
 
 }
