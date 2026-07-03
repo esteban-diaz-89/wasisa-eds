@@ -53,6 +53,7 @@ export function buildLocationCard(inner, isFirst) {
 
   const mainTagKeys = [
     'tag:professional',
+    'tag:asisa-center',
     'tag:HOSPITAL',
     'tag:CENTRO MÉDICO',
     'tag:TRANSPORTE SANITARIO',
