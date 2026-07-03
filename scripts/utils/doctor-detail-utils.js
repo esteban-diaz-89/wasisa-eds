@@ -51,7 +51,14 @@ export function buildLocationCard(inner, isFirst) {
   const principalTag = document.createElement('div');
   principalTag.className = 'eds-mp-card__principal-tag';
 
-  const mainTagKeys = ['tag:professional', 'tag:center', 'tag:asisa-center'];
+  const mainTagKeys = [
+    'tag:professional',
+    'tag:HOSPITAL',
+    'tag:CENTRO MÉDICO',
+    'tag:TRANSPORTE SANITARIO',
+    'tag:LABORATORIO',
+    'tag:OXIGENOTERAPIA'
+  ];
   tagKeys.filter((k) => mainTagKeys.includes(k)).forEach((k) => {
     principalTag.appendChild(buildTag(TAG_MAP[k]));
   });
