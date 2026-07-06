@@ -33,7 +33,7 @@ export default function decorate(block) {
     const linkLi = document.createElement('li');
 
     privateAreaLink.textContent = 'Ir a mi área privada';
-
+    privateAreaLink.className = 'js-eds-private-area-link';
     linkLi.appendChild(privateAreaLink);
     contentOl.appendChild(linkLi);
   }
