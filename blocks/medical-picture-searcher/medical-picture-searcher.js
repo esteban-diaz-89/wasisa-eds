@@ -7,7 +7,7 @@ export default async function decorate(block) {
     searchComponent.setAttribute('data-component', 'cmp-medical-picture-search-react');
     const dataPropsJson = `{
         "data" : {
-            "view" : "search",
+            "view" : "result",
             "networkId" : "1",
             "networkName" : "Salud"
         },
