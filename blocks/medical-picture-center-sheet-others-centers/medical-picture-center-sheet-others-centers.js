@@ -33,6 +33,8 @@ export default function decorate(block) {
     const nameLink = item.querySelector('a[title="detail"]');
     const address = ps[2]?.textContent.trim();
 
+    const shareA = item.querySelector('a[title="share"]');
+
     const phone = item.querySelector('a[title="phone"]');
     const tagsList = item.querySelector('ul');
 
@@ -69,7 +71,7 @@ export default function decorate(block) {
     // ✅ SHARE (siempre)
     const share = document.createElement('li');
     share.className = 'eds-mp-doctor-center__tags-principal--share';
-    share.innerHTML = `Compartir <i class="icon-share-021"></i>`;
+    share.innerHTML = `<a href="${shareA?.href}">Compartir <i class="icon-share-021"></i></a>`;
     tagsPrincipal.appendChild(share);
 
     dt.appendChild(tagsPrincipal);
