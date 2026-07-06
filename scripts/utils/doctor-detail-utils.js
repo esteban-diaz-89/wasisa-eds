@@ -132,10 +132,12 @@ export function buildLocationCard(inner, isFirst) {
   blockRight.className = 'eds-mp-card__block';
 
   if (centerA && isFirst) {
-    const p = document.createElement('p');
-    p.className = 'eds-mp-card__type--center';
-    p.textContent = centerA.textContent;
-    blockRight.appendChild(p);
+//    const p = document.createElement('p');
+//    p.className = 'eds-mp-card__type--center';
+//    p.textContent = centerA.textContent;
+    const a = centerA.cloneNode(true);
+    a.className = 'eds-mp-card__type--center';
+    blockRight.appendChild(a);
   }
 
   if (addressP) {
