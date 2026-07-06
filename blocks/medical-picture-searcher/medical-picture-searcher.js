@@ -1,6 +1,8 @@
 export default async function decorate(block) {
 
-    block.setAttribute('data-component', 'cmp-medical-picture-search-react');
+    const searchComponent = document.createElement('div');
+    searchComponent.setAttribute('data-component', 'cmp-medical-picture-search-react');
+    block.appendChild(searchComponent);
 
     const event = new CustomEvent('LoadSearch', {
       detail: { }
