@@ -17,6 +17,8 @@ export default async function decorate(block) {
     }
     `;
     searchComponent.setAttribute('data-props', dataPropsJson);
+
+    inner.textContent = '';
     inner.appendChild(searchComponent);
 
     const event = new CustomEvent('LoadSearch', {
