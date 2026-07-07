@@ -3,9 +3,14 @@ export default function decorate(block) {
   if (!inner) return;
 
   const h1 = inner.querySelector('h1');
-  const ps = inner.querySelectorAll('p');
-  const pretitle = ps[0];
-  const p = ps[1];
+  const p = inner.querySelector('p');
+  const pretitleItem = inner.querySelector('ul > li');
+  let pretitle = null;
+  if (pretitleItem) {
+    pretitle = document.createElement('p');
+    pretitle.textContent = pretitleItem.textContent.trim();
+    pretitleItem.replaceWith(pretitle);
+  }
 
   // Aplicar clases directamente
   if (pretitle) pretitle.classList.add('eds-mp-box-head--pretitle');
