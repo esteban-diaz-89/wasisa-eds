@@ -1,4 +1,4 @@
-import { loadCSS, loadScript } from '../../scripts/lib-franklin.js';
+import { loadCSS, loadScript } from '../../scripts/load-libs-utils.js';
 
 export default async function decorate(block) {
 
