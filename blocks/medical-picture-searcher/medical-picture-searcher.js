@@ -1,4 +1,11 @@
+import { loadCSS, loadScript } from '../../scripts/lib-franklin.js';
+
 export default async function decorate(block) {
+
+    await loadCSS('http://localhost/etc.clientlibs/wasisa/clientlibs/clientlib-react-medical-picture-search-cmp.min.css');
+    await loadScript('http://localhost/etc.clientlibs/wasisa/clientlibs/clientlib-react-medical-picture-search-cmp.min.js',
+      { type: 'module' }
+    );
 
     const inner = block.querySelector(':scope > div > div');
     const resultA = inner.querySelector('a[title="result"]');
