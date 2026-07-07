@@ -1,4 +1,4 @@
-import { loadCSS, loadScript } from '../../scripts/load-libs-utils.js';
+import { loadCSS, loadScript } from '../../scripts/utils/load-libs-utils.js';
 
 export default async function decorate(block) {
 
