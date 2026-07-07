@@ -88,7 +88,7 @@ export default function decorate(block) {
   const right = document.createElement('div');
   right.className = 'eds-mp-card__block';
 
-  if (address) {
+  if (address && address !== '#') {
     const addr = document.createElement('div');
     addr.className = 'eds-mp-card__type--address';
     addr.innerHTML = `<i class="icon-marker-02"></i>${address}`;

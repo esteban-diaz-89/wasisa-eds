@@ -12,7 +12,7 @@ export default async function decorate(block) {
 
     const searchComponent = document.createElement('div');
     searchComponent.setAttribute('data-component', 'cmp-medical-picture-search-react');
-    searchComponent.className = "eds-mp-user";
+    searchComponent.className = "eds-mp-react";
     const dataPropsJson = `{
         "data" : {
             "view" : "results",
