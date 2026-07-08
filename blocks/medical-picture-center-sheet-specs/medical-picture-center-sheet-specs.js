@@ -80,6 +80,7 @@ export default function decorate(block) {
         wrap.className = 'button-cmp';
 
         appointment.className = 'btn button-cmp__text button-cmp__text--primary';
+        appointment.setAttribute('data-eds-request-appointment', '');
         appointment.textContent = 'Pedir Cita';
 
         wrap.appendChild(appointment);
