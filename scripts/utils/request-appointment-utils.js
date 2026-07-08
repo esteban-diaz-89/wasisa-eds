@@ -23,12 +23,9 @@ function handleAppointmentClick(event) {
     return;
   }
 
-  setCookie('appointmentTarget', encodeBase64(link.href), 1);
+  setCookie('currentPageUrl', encodeBase64(link.href), 1);
 }
 
 export function initAppointmentTracking() {
-  document.body.addEventListener(
-    'click',
-    handleAppointmentClick
-  );
+  document.body.addEventListener('click', handleAppointmentClick);
 }
