@@ -26,7 +26,7 @@ function handleAppointmentClick(event) {
   setCookie('appointmentTarget', encodeBase64(link.href), 1);
 }
 
-export default function initAppointmentTracking() {
+export function initAppointmentTracking() {
   document.body.addEventListener(
     'click',
     handleAppointmentClick
