@@ -67,6 +67,8 @@ export function buildLocationCard(inner, isFirst) {
   const shareDiv = document.createElement('div');
   shareDiv.className = 'eds-mp-card__principal-tag--share';
   if (shareA) {
+    shareA.dataset.shareUrl = shareA.href;
+    //TODO añadir Name
     shareA.removeAttribute('class');
     shareA.removeAttribute('title');
     shareA.textContent = 'Compartir ';

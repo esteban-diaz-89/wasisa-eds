@@ -68,6 +68,7 @@ export default function decorate(block) {
   if (share) {
     share.className = 'eds-mp-card__principal-tag--share';
     share.innerHTML = `Compartir <i class="icon-share-021"></i>`;
+    share.dataset.shareUrl = share.href;
     principalTags.appendChild(share);
   }
 

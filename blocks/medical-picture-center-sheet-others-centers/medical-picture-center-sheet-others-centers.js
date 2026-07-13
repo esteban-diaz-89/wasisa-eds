@@ -71,7 +71,8 @@ export default function decorate(block) {
     // ✅ SHARE (siempre)
     const share = document.createElement('li');
     share.className = 'eds-mp-doctor-center__tags-principal--share';
-    share.innerHTML = `<a href="${shareA?.href}">Compartir <i class="icon-share-021"></i></a>`;
+    //añadir Name para compartir
+    share.innerHTML = `<a href="${shareA?.href}" data-share-url="${shareA?.href}">Compartir <i class="icon-share-021"></i></a>`;
     tagsPrincipal.appendChild(share);
 
     dt.appendChild(tagsPrincipal);
