@@ -56,7 +56,7 @@ export default function decorate(block) {
     if (providerType) {
       const mainTag = document.createElement('li');
       mainTag.className = 'cmp-tag-template cmp-tag-template--blue';
-      mainTag.innerHTML = `<p class="cmp-tag-template__text">${providerType}</p>`;
+      mainTag.innerHTML = `<p class='cmp-tag-template__text'>${providerType}</p>`;
       tagsPrincipal.appendChild(mainTag);
     }
 
@@ -64,7 +64,7 @@ export default function decorate(block) {
     if (businessGroup === 'asisa') {
       const asisaTag = document.createElement('li');
       asisaTag.className = 'cmp-tag-template cmp-tag-template--blank';
-      asisaTag.innerHTML = `<p class="cmp-tag-template__text">Centro de ASISA</p>`;
+      asisaTag.innerHTML = `<p class='cmp-tag-template__text'>Centro de ASISA</p>`;
       tagsPrincipal.appendChild(asisaTag);
     }
 
@@ -72,7 +72,10 @@ export default function decorate(block) {
     const share = document.createElement('li');
     share.className = 'eds-mp-doctor-center__tags-principal--share';
     //añadir Name para compartir
-    share.innerHTML = `<a href="${shareA?.href}" data-share-url="${shareA?.href}">Compartir <i class="icon-share-021"></i></a>`;
+    share.innerHTML = `
+        <a href='${shareA?.href}' data-share-url='${shareA?.href}' data-share-name='${nameLink.textContent}'>
+           Compartir <i class='icon-share-021'></i>
+        </a>`;
     tagsPrincipal.appendChild(share);
 
     dt.appendChild(tagsPrincipal);
@@ -95,7 +98,7 @@ export default function decorate(block) {
     if (address) {
       const addr = document.createElement('p');
       addr.className = 'eds-mp-doctor-center__address';
-      addr.innerHTML = `<i class="icon-marker-02"></i>${address}`;
+      addr.innerHTML = `<i class='icon-marker-02'></i>${address}`;
       dt.appendChild(addr);
     }
 
@@ -110,7 +113,7 @@ export default function decorate(block) {
         const li = document.createElement('li');
         li.className = 'cmp-tag-template cmp-tag-template--blank';
 
-        li.innerHTML = `<p class="cmp-tag-template__text">${tag.textContent}</p>`;
+        li.innerHTML = `<p class='cmp-tag-template__text'>${tag.textContent}</p>`;
         secTags.appendChild(li);
       });
 
