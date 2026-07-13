@@ -34,7 +34,7 @@ export default function decorate(block) {
       }
 
       const linkWrapper = document.createElement('p');
-      linkWrapper.className = 'eds-mp-other-localities-blue__link';
+      linkWrapper.className = 'eds-mp-other-localities__link';
 
       const originalLink = item.querySelector('a');
       const link = document.createElement('a');
