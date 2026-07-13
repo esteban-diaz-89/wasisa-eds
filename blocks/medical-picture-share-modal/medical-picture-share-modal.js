@@ -84,7 +84,7 @@ export default function decorate(block) {
 
   // Abrir modal desde cualquier bloque via evento
   document.addEventListener('modal:share', ({ detail }) => {
-    nameEl.textContent = detail.dataset.shareName || '';
+    nameEl.textContent = detail.name || '';
     modal.querySelectorAll('[data-share]').forEach((a) => {
       const network = a.dataset.share;
       if (SHARE_URLS[network]) a.href = SHARE_URLS[network](detail.url);
