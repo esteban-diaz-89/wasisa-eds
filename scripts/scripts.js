@@ -12,6 +12,7 @@ import {
   loadCSS,
   loadBlock,
   buildBlock,
+  decorateBlock,
 } from './aem.js';
 
 /**
