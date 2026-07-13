@@ -10,9 +10,7 @@ import {
   loadSection,
   loadSections,
   loadCSS,
-  loadBlock,
-  buildBlock,
-  decorateBlock,
+  loadShareModal,
 } from './aem.js';
 
 /**
@@ -114,26 +112,6 @@ async function loadEager(doc) {
 }
 
 /**
- *  Loads share modal in body, added listener to detect click and dispatch event
- */
-async function loadShareModal() {
-    const modalBlock = buildBlock('medical-picture-share-modal', '');
-    document.body.appendChild(modalBlock);
-    decorateBlock(modalBlock);
-    await loadBlock(modalBlock);
-
-    //listener
-    document.addEventListener('click', (e) => {
-    const shareLink = e.target.closest('[data-share-url]');
-    if (!shareLink) return;
-    e.preventDefault();
-    document.dispatchEvent(new CustomEvent('modal:share', {
-      detail: { url: shareLink.dataset.shareUrl, name: shareLink.dataset.shareName || '' },
-    }));
-  });
-}
-
-/**
  * Loads everything that doesn't need to be delayed.
  * @param {Element} doc The container element
  */
@@ -153,7 +131,6 @@ async function loadLazy(doc) {
   loadFonts();
 
   loadShareModal();
-
 }
 
 /**
