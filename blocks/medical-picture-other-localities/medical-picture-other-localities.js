@@ -53,5 +53,5 @@ export default function decorate(block) {
   }
 
   section.appendChild(wrapper);
-  block.appendChild(section);
+  sourceInner.appendChild(section);
 }
