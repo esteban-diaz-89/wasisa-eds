@@ -52,6 +52,8 @@ export default function decorate(block) {
     wrapper.appendChild(newList);
   }
 
-  section.appendChild(wrapper);
-  block.replaceWith(section);
+  block.className = 'eds-mp-other-localities-blue';
+  block.appendChild(wrapper);
+  //section.appendChild(wrapper);
+  //block.replaceWith(section);
 }
