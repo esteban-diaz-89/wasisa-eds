@@ -11,7 +11,7 @@ export default function decorate(block) {
   if (!sourceInner) return;
 
   const section = document.createElement('section');
-  section.className = 'eds-mp-other-localities-blue';
+  section.className = 'eds-mp-other-localities';
 
   const wrapper = document.createElement('div');
 
@@ -52,8 +52,6 @@ export default function decorate(block) {
     wrapper.appendChild(newList);
   }
 
-  block.classList.add('eds-mp-other-localities-blue');
-  block.appendChild(wrapper);
-  //section.appendChild(wrapper);
-  //block.replaceWith(section);
+  section.appendChild(wrapper);
+  block.appendChild(section);
 }
